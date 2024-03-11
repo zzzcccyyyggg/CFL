@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC   -Wl,-rpath-link,  -Wl,-O3 -Wl,--gc-sections -shared  -o CflLLVMPass.so CMakeFiles/CflLLVMPass.dir/cfl-llvm-pass1.cpp.o CMakeFiles/CflLLVMPass.dir/plugin.cpp.o   -L/usr/lib/llvm-12/lib  -Wl,-rpath,"\$ORIGIN/../lib:/usr/lib/llvm-12/lib" /usr/lib/llvm-12/lib/libLLVM-12.so.1 
