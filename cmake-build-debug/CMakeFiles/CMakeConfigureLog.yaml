@@ -1,0 +1,487 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeDetermineSystem.cmake:233 (message)"
+      - "CMakeLists.txt:5 (project)"
+    message: |
+      The system is: Linux - 5.15.0-100-generic - x86_64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:5 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: /home/zzzccc/test1/cfl-clang 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+      
+      The C compiler identification is Clang, found in:
+        /home/zzzccc/zcFuzzing/cmake-build-debug/CMakeFiles/3.28.1/CompilerIdC/a.out
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:5 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: /home/zzzccc/test1/cfl-clang 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+      
+      The CXX compiler identification is Clang, found in:
+        /home/zzzccc/zcFuzzing/cmake-build-debug/CMakeFiles/3.28.1/CompilerIdCXX/a.out
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "/home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:5 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "/home/zzzccc/zcFuzzing/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-sNPcs8"
+      binary: "/home/zzzccc/zcFuzzing/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-sNPcs8"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-NOTFOUND"
+      CMAKE_C_FLAGS: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/zzzccc/zcFuzzing/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-sNPcs8'
+        
+        Run Build Command(s): /home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/ninja/linux/x64/ninja -v cmTC_c6f07
+        [1/2] /home/zzzccc/test1/cfl-clang   -fcolor-diagnostics   -v -MD -MT CMakeFiles/cmTC_c6f07.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_c6f07.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_c6f07.dir/CMakeCCompilerABI.c.o -c /home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCCompilerABI.c
+        Ubuntu clang version 12.0.0-3ubuntu1~20.04.5
+        Target: x86_64-pc-linux-gnu
+        Thread model: posix
+        InstalledDir: /usr/bin
+        Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/9
+        Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/9
+        Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/9
+        Candidate multilib: .;@m64
+        Candidate multilib: 32;@m32
+        Candidate multilib: x32;@mx32
+        Selected multilib: .;@m64
+         (in-process)
+         "/usr/lib/llvm-12/bin/clang" -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all --mrelax-relocations -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model static -mframe-pointer=all -fmath-errno -fno-rounding-math -mconstructor-aliases -munwind-tables -target-cpu x86-64 -tune-cpu generic -fno-split-dwarf-inlining -debugger-tuning=gdb -v -resource-dir /usr/lib/llvm-12/lib/clang/12.0.0 -dependency-file CMakeFiles/cmTC_c6f07.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_c6f07.dir/CMakeCCompilerABI.c.o -sys-header-deps -D "__CFL_INIT()=do { static volatile char *_A __attribute__((used));  _A = (char*)\\"##SIG_AFL_DEFER_FORKSRV##\\"; __attribute__((visibility(\\"default\\"))) void _I(void) __asm__(\\"__cfl_manual_init\\"); _I(); } while (0)" -D "__CFL_LOOP(_A)=({ static volatile char *_B __attribute__((used));  _B = (char*)\\"##SIG_AFL_PERSISTENT##\\"; __attribute__((visibility(\\"default\\"))) int _L(unsigned int) __asm__(\\"__cfl_persistent_loop\\"); _L(_A); })" -internal-isystem /usr/local/include -internal-isystem /usr/lib/llvm-12/lib/clang/12.0.0/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdebug-compilation-dir /home/zzzccc/zcFuzzing/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-sNPcs8 -ferror-limit 19 -fgnuc-version=4.2.1 -fno-legacy-pass-manager -fcolor-diagnostics -fpass-plugin=/home/zzzccc/test1/CflLLVMPass.so -faddrsig -o CMakeFiles/cmTC_c6f07.dir/CMakeCCompilerABI.c.o -x c /home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCCompilerABI.c
+        clang -cc1 version 12.0.0 based upon LLVM 12.0.0 default target x86_64-pc-linux-gnu
+        ignoring nonexistent directory "/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /usr/local/include
+         /usr/lib/llvm-12/lib/clang/12.0.0/include
+         /usr/include/x86_64-linux-gnu
+         /usr/include
+        End of search list.
+        [2/2] : && /home/zzzccc/test1/cfl-clang  -v CMakeFiles/cmTC_c6f07.dir/CMakeCCompilerABI.c.o -o cmTC_c6f07   && :
+        Ubuntu clang version 12.0.0-3ubuntu1~20.04.5
+        Target: x86_64-pc-linux-gnu
+        Thread model: posix
+        InstalledDir: /usr/bin
+        Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/9
+        Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/9
+        Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/9
+        Candidate multilib: .;@m64
+        Candidate multilib: 32;@m32
+        Candidate multilib: x32;@mx32
+        Selected multilib: .;@m64
+         "/usr/bin/ld" -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_c6f07 /usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crt1.o /usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/9/crtbegin.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/9 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/usr/lib/x86_64-linux-gnu/../../lib64 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../.. -L/usr/lib/llvm-12/bin/../lib -L/lib -L/usr/lib --unresolved-symbols=ignore-all CMakeFiles/cmTC_c6f07.dir/CMakeCCompilerABI.c.o /home/zzzccc/test1/cfl-llvm-rt.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/bin/../lib/gcc/x86_64-linux-gnu/9/crtend.o /usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake:127 (message)"
+      - "/home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:5 (project)"
+    message: |
+      Parsed C implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/usr/local/include]
+          add: [/usr/lib/llvm-12/lib/clang/12.0.0/include]
+          add: [/usr/include/x86_64-linux-gnu]
+          add: [/usr/include]
+        end of search list found
+        collapse include dir [/usr/local/include] ==> [/usr/local/include]
+        collapse include dir [/usr/lib/llvm-12/lib/clang/12.0.0/include] ==> [/usr/lib/llvm-12/lib/clang/12.0.0/include]
+        collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+        collapse include dir [/usr/include] ==> [/usr/include]
+        implicit include dirs: [/usr/local/include;/usr/lib/llvm-12/lib/clang/12.0.0/include;/usr/include/x86_64-linux-gnu;/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake:159 (message)"
+      - "/home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:5 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        ignore line: [Change Dir: '/home/zzzccc/zcFuzzing/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-sNPcs8']
+        ignore line: []
+        ignore line: [Run Build Command(s): /home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/ninja/linux/x64/ninja -v cmTC_c6f07]
+        ignore line: [[1/2] /home/zzzccc/test1/cfl-clang   -fcolor-diagnostics   -v -MD -MT CMakeFiles/cmTC_c6f07.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_c6f07.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_c6f07.dir/CMakeCCompilerABI.c.o -c /home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCCompilerABI.c]
+        ignore line: [Ubuntu clang version 12.0.0-3ubuntu1~20.04.5]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /usr/bin]
+        ignore line: [Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/9]
+        ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/9]
+        ignore line: [Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/9]
+        ignore line: [Candidate multilib: .]
+        ignore line: [@m64]
+        ignore line: [Candidate multilib: 32]
+        ignore line: [@m32]
+        ignore line: [Candidate multilib: x32]
+        ignore line: [@mx32]
+        ignore line: [Selected multilib: .]
+        ignore line: [@m64]
+        ignore line: [ (in-process)]
+        ignore line: [ "/usr/lib/llvm-12/bin/clang" -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all --mrelax-relocations -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model static -mframe-pointer=all -fmath-errno -fno-rounding-math -mconstructor-aliases -munwind-tables -target-cpu x86-64 -tune-cpu generic -fno-split-dwarf-inlining -debugger-tuning=gdb -v -resource-dir /usr/lib/llvm-12/lib/clang/12.0.0 -dependency-file CMakeFiles/cmTC_c6f07.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_c6f07.dir/CMakeCCompilerABI.c.o -sys-header-deps -D "__CFL_INIT()=do { static volatile char *_A __attribute__((used))]
+        ignore line: [  _A = (char*)\\"##SIG_AFL_DEFER_FORKSRV##\\"]
+        ignore line: [ __attribute__((visibility(\\"default\\"))) void _I(void) __asm__(\\"__cfl_manual_init\\")]
+        ignore line: [ _I()]
+        ignore line: [ } while (0)" -D "__CFL_LOOP(_A)=({ static volatile char *_B __attribute__((used))]
+        ignore line: [  _B = (char*)\\"##SIG_AFL_PERSISTENT##\\"]
+        ignore line: [ __attribute__((visibility(\\"default\\"))) int _L(unsigned int) __asm__(\\"__cfl_persistent_loop\\")]
+        ignore line: [ _L(_A)]
+        ignore line: [ })" -internal-isystem /usr/local/include -internal-isystem /usr/lib/llvm-12/lib/clang/12.0.0/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdebug-compilation-dir /home/zzzccc/zcFuzzing/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-sNPcs8 -ferror-limit 19 -fgnuc-version=4.2.1 -fno-legacy-pass-manager -fcolor-diagnostics -fpass-plugin=/home/zzzccc/test1/CflLLVMPass.so -faddrsig -o CMakeFiles/cmTC_c6f07.dir/CMakeCCompilerABI.c.o -x c /home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCCompilerABI.c]
+        ignore line: [clang -cc1 version 12.0.0 based upon LLVM 12.0.0 default target x86_64-pc-linux-gnu]
+        ignore line: [ignoring nonexistent directory "/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/lib/llvm-12/lib/clang/12.0.0/include]
+        ignore line: [ /usr/include/x86_64-linux-gnu]
+        ignore line: [ /usr/include]
+        ignore line: [End of search list.]
+        ignore line: [[2/2] : && /home/zzzccc/test1/cfl-clang  -v CMakeFiles/cmTC_c6f07.dir/CMakeCCompilerABI.c.o -o cmTC_c6f07   && :]
+        ignore line: [Ubuntu clang version 12.0.0-3ubuntu1~20.04.5]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /usr/bin]
+        ignore line: [Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/9]
+        ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/9]
+        ignore line: [Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/9]
+        ignore line: [Candidate multilib: .]
+        ignore line: [@m64]
+        ignore line: [Candidate multilib: 32]
+        ignore line: [@m32]
+        ignore line: [Candidate multilib: x32]
+        ignore line: [@mx32]
+        ignore line: [Selected multilib: .]
+        ignore line: [@m64]
+        link line: [ "/usr/bin/ld" -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_c6f07 /usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crt1.o /usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/9/crtbegin.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/9 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/usr/lib/x86_64-linux-gnu/../../lib64 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../.. -L/usr/lib/llvm-12/bin/../lib -L/lib -L/usr/lib --unresolved-symbols=ignore-all CMakeFiles/cmTC_c6f07.dir/CMakeCCompilerABI.c.o /home/zzzccc/test1/cfl-llvm-rt.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/bin/../lib/gcc/x86_64-linux-gnu/9/crtend.o /usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
+          arg [/usr/bin/ld] ==> ignore
+          arg [-zrelro] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [--build-id] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_c6f07] ==> ignore
+          arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crt1.o] ==> obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crt1.o]
+          arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o]
+          arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/crtbegin.o] ==> obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/crtbegin.o]
+          arg [-L/usr/bin/../lib/gcc/x86_64-linux-gnu/9] ==> dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/9]
+          arg [-L/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu] ==> dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu]
+          arg [-L/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../lib64] ==> dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../lib64]
+          arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+          arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+          arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+          arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+          arg [-L/usr/lib/x86_64-linux-gnu/../../lib64] ==> dir [/usr/lib/x86_64-linux-gnu/../../lib64]
+          arg [-L/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../..] ==> dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../..]
+          arg [-L/usr/lib/llvm-12/bin/../lib] ==> dir [/usr/lib/llvm-12/bin/../lib]
+          arg [-L/lib] ==> dir [/lib]
+          arg [-L/usr/lib] ==> dir [/usr/lib]
+          arg [--unresolved-symbols=ignore-all] ==> ignore
+          arg [CMakeFiles/cmTC_c6f07.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [/home/zzzccc/test1/cfl-llvm-rt.o] ==> obj [/home/zzzccc/test1/cfl-llvm-rt.o]
+          arg [-lgcc] ==> lib [gcc]
+          arg [--as-needed] ==> ignore
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [--no-as-needed] ==> ignore
+          arg [-lc] ==> lib [c]
+          arg [-lgcc] ==> lib [gcc]
+          arg [--as-needed] ==> ignore
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [--no-as-needed] ==> ignore
+          arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/crtend.o] ==> obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/crtend.o]
+          arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o] ==> obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
+        collapse obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crt1.o] ==> [/usr/lib/x86_64-linux-gnu/crt1.o]
+        collapse obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o] ==> [/usr/lib/x86_64-linux-gnu/crti.o]
+        collapse obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/crtbegin.o] ==> [/usr/lib/gcc/x86_64-linux-gnu/9/crtbegin.o]
+        collapse obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/crtend.o] ==> [/usr/lib/gcc/x86_64-linux-gnu/9/crtend.o]
+        collapse obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o] ==> [/usr/lib/x86_64-linux-gnu/crtn.o]
+        collapse library dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/9] ==> [/usr/lib/gcc/x86_64-linux-gnu/9]
+        collapse library dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../lib64] ==> [/usr/lib64]
+        collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+        collapse library dir [/lib/../lib64] ==> [/lib64]
+        collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+        collapse library dir [/usr/lib/x86_64-linux-gnu/../../lib64] ==> [/usr/lib64]
+        collapse library dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../..] ==> [/usr/lib]
+        collapse library dir [/usr/lib/llvm-12/bin/../lib] ==> [/usr/lib/llvm-12/lib]
+        collapse library dir [/lib] ==> [/lib]
+        collapse library dir [/usr/lib] ==> [/usr/lib]
+        implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+        implicit objs: [/usr/lib/x86_64-linux-gnu/crt1.o;/usr/lib/x86_64-linux-gnu/crti.o;/usr/lib/gcc/x86_64-linux-gnu/9/crtbegin.o;/home/zzzccc/test1/cfl-llvm-rt.o;/usr/lib/gcc/x86_64-linux-gnu/9/crtend.o;/usr/lib/x86_64-linux-gnu/crtn.o]
+        implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/9;/usr/lib/x86_64-linux-gnu;/usr/lib64;/lib/x86_64-linux-gnu;/lib64;/usr/lib;/usr/lib/llvm-12/lib;/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "/home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:5 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "/home/zzzccc/zcFuzzing/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-xUuWc8"
+      binary: "/home/zzzccc/zcFuzzing/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-xUuWc8"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-NOTFOUND"
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/zzzccc/zcFuzzing/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-xUuWc8'
+        
+        Run Build Command(s): /home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/ninja/linux/x64/ninja -v cmTC_30ed9
+        [1/2] /home/zzzccc/test1/cfl-clang   -fcolor-diagnostics   -v -MD -MT CMakeFiles/cmTC_30ed9.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_30ed9.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_30ed9.dir/CMakeCXXCompilerABI.cpp.o -c /home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp
+        Ubuntu clang version 12.0.0-3ubuntu1~20.04.5
+        Target: x86_64-pc-linux-gnu
+        Thread model: posix
+        InstalledDir: /usr/bin
+        Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/9
+        Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/9
+        Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/9
+        Candidate multilib: .;@m64
+        Candidate multilib: 32;@m32
+        Candidate multilib: x32;@mx32
+        Selected multilib: .;@m64
+         (in-process)
+         "/usr/lib/llvm-12/bin/clang" -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all --mrelax-relocations -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model static -mframe-pointer=all -fmath-errno -fno-rounding-math -mconstructor-aliases -munwind-tables -target-cpu x86-64 -tune-cpu generic -fno-split-dwarf-inlining -debugger-tuning=gdb -v -resource-dir /usr/lib/llvm-12/lib/clang/12.0.0 -dependency-file CMakeFiles/cmTC_30ed9.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_30ed9.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -D "__CFL_INIT()=do { static volatile char *_A __attribute__((used));  _A = (char*)\\"##SIG_AFL_DEFER_FORKSRV##\\"; __attribute__((visibility(\\"default\\"))) void _I(void) __asm__(\\"__cfl_manual_init\\"); _I(); } while (0)" -D "__CFL_LOOP(_A)=({ static volatile char *_B __attribute__((used));  _B = (char*)\\"##SIG_AFL_PERSISTENT##\\"; __attribute__((visibility(\\"default\\"))) int _L(unsigned int) __asm__(\\"__cfl_persistent_loop\\"); _L(_A); })" -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9 -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/x86_64-linux-gnu/c++/9 -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/x86_64-linux-gnu/c++/9 -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9/backward -internal-isystem /usr/local/include -internal-isystem /usr/lib/llvm-12/lib/clang/12.0.0/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdeprecated-macro -fdebug-compilation-dir /home/zzzccc/zcFuzzing/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-xUuWc8 -ferror-limit 19 -fgnuc-version=4.2.1 -fno-legacy-pass-manager -fcxx-exceptions -fexceptions -fcolor-diagnostics -fpass-plugin=/home/zzzccc/test1/CflLLVMPass.so -faddrsig -o CMakeFiles/cmTC_30ed9.dir/CMakeCXXCompilerABI.cpp.o -x c++ /home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp
+        clang -cc1 version 12.0.0 based upon LLVM 12.0.0 default target x86_64-pc-linux-gnu
+        ignoring nonexistent directory "/include"
+        ignoring duplicate directory "/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/x86_64-linux-gnu/c++/9"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9
+         /usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/x86_64-linux-gnu/c++/9
+         /usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9/backward
+         /usr/local/include
+         /usr/lib/llvm-12/lib/clang/12.0.0/include
+         /usr/include/x86_64-linux-gnu
+         /usr/include
+        End of search list.
+        [2/2] : && /home/zzzccc/test1/cfl-clang  -v CMakeFiles/cmTC_30ed9.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_30ed9   && :
+        Ubuntu clang version 12.0.0-3ubuntu1~20.04.5
+        Target: x86_64-pc-linux-gnu
+        Thread model: posix
+        InstalledDir: /usr/bin
+        Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/9
+        Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/9
+        Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/9
+        Candidate multilib: .;@m64
+        Candidate multilib: 32;@m32
+        Candidate multilib: x32;@mx32
+        Selected multilib: .;@m64
+         "/usr/bin/ld" -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_30ed9 /usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crt1.o /usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/9/crtbegin.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/9 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/usr/lib/x86_64-linux-gnu/../../lib64 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../.. -L/usr/lib/llvm-12/bin/../lib -L/lib -L/usr/lib --unresolved-symbols=ignore-all CMakeFiles/cmTC_30ed9.dir/CMakeCXXCompilerABI.cpp.o /home/zzzccc/test1/cfl-llvm-rt.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/bin/../lib/gcc/x86_64-linux-gnu/9/crtend.o /usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake:127 (message)"
+      - "/home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:5 (project)"
+    message: |
+      Parsed CXX implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9]
+          add: [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/x86_64-linux-gnu/c++/9]
+          add: [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9/backward]
+          add: [/usr/local/include]
+          add: [/usr/lib/llvm-12/lib/clang/12.0.0/include]
+          add: [/usr/include/x86_64-linux-gnu]
+          add: [/usr/include]
+        end of search list found
+        collapse include dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9] ==> [/usr/include/c++/9]
+        collapse include dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/x86_64-linux-gnu/c++/9] ==> [/usr/include/x86_64-linux-gnu/c++/9]
+        collapse include dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9/backward] ==> [/usr/include/c++/9/backward]
+        collapse include dir [/usr/local/include] ==> [/usr/local/include]
+        collapse include dir [/usr/lib/llvm-12/lib/clang/12.0.0/include] ==> [/usr/lib/llvm-12/lib/clang/12.0.0/include]
+        collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+        collapse include dir [/usr/include] ==> [/usr/include]
+        implicit include dirs: [/usr/include/c++/9;/usr/include/x86_64-linux-gnu/c++/9;/usr/include/c++/9/backward;/usr/local/include;/usr/lib/llvm-12/lib/clang/12.0.0/include;/usr/include/x86_64-linux-gnu;/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake:159 (message)"
+      - "/home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:5 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        ignore line: [Change Dir: '/home/zzzccc/zcFuzzing/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-xUuWc8']
+        ignore line: []
+        ignore line: [Run Build Command(s): /home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/ninja/linux/x64/ninja -v cmTC_30ed9]
+        ignore line: [[1/2] /home/zzzccc/test1/cfl-clang   -fcolor-diagnostics   -v -MD -MT CMakeFiles/cmTC_30ed9.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_30ed9.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_30ed9.dir/CMakeCXXCompilerABI.cpp.o -c /home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Ubuntu clang version 12.0.0-3ubuntu1~20.04.5]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /usr/bin]
+        ignore line: [Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/9]
+        ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/9]
+        ignore line: [Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/9]
+        ignore line: [Candidate multilib: .]
+        ignore line: [@m64]
+        ignore line: [Candidate multilib: 32]
+        ignore line: [@m32]
+        ignore line: [Candidate multilib: x32]
+        ignore line: [@mx32]
+        ignore line: [Selected multilib: .]
+        ignore line: [@m64]
+        ignore line: [ (in-process)]
+        ignore line: [ "/usr/lib/llvm-12/bin/clang" -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all --mrelax-relocations -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model static -mframe-pointer=all -fmath-errno -fno-rounding-math -mconstructor-aliases -munwind-tables -target-cpu x86-64 -tune-cpu generic -fno-split-dwarf-inlining -debugger-tuning=gdb -v -resource-dir /usr/lib/llvm-12/lib/clang/12.0.0 -dependency-file CMakeFiles/cmTC_30ed9.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_30ed9.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -D "__CFL_INIT()=do { static volatile char *_A __attribute__((used))]
+        ignore line: [  _A = (char*)\\"##SIG_AFL_DEFER_FORKSRV##\\"]
+        ignore line: [ __attribute__((visibility(\\"default\\"))) void _I(void) __asm__(\\"__cfl_manual_init\\")]
+        ignore line: [ _I()]
+        ignore line: [ } while (0)" -D "__CFL_LOOP(_A)=({ static volatile char *_B __attribute__((used))]
+        ignore line: [  _B = (char*)\\"##SIG_AFL_PERSISTENT##\\"]
+        ignore line: [ __attribute__((visibility(\\"default\\"))) int _L(unsigned int) __asm__(\\"__cfl_persistent_loop\\")]
+        ignore line: [ _L(_A)]
+        ignore line: [ })" -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9 -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/x86_64-linux-gnu/c++/9 -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/x86_64-linux-gnu/c++/9 -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9/backward -internal-isystem /usr/local/include -internal-isystem /usr/lib/llvm-12/lib/clang/12.0.0/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdeprecated-macro -fdebug-compilation-dir /home/zzzccc/zcFuzzing/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-xUuWc8 -ferror-limit 19 -fgnuc-version=4.2.1 -fno-legacy-pass-manager -fcxx-exceptions -fexceptions -fcolor-diagnostics -fpass-plugin=/home/zzzccc/test1/CflLLVMPass.so -faddrsig -o CMakeFiles/cmTC_30ed9.dir/CMakeCXXCompilerABI.cpp.o -x c++ /home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [clang -cc1 version 12.0.0 based upon LLVM 12.0.0 default target x86_64-pc-linux-gnu]
+        ignore line: [ignoring nonexistent directory "/include"]
+        ignore line: [ignoring duplicate directory "/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/x86_64-linux-gnu/c++/9"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9]
+        ignore line: [ /usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/x86_64-linux-gnu/c++/9]
+        ignore line: [ /usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9/backward]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/lib/llvm-12/lib/clang/12.0.0/include]
+        ignore line: [ /usr/include/x86_64-linux-gnu]
+        ignore line: [ /usr/include]
+        ignore line: [End of search list.]
+        ignore line: [[2/2] : && /home/zzzccc/test1/cfl-clang  -v CMakeFiles/cmTC_30ed9.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_30ed9   && :]
+        ignore line: [Ubuntu clang version 12.0.0-3ubuntu1~20.04.5]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /usr/bin]
+        ignore line: [Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/9]
+        ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/9]
+        ignore line: [Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/9]
+        ignore line: [Candidate multilib: .]
+        ignore line: [@m64]
+        ignore line: [Candidate multilib: 32]
+        ignore line: [@m32]
+        ignore line: [Candidate multilib: x32]
+        ignore line: [@mx32]
+        ignore line: [Selected multilib: .]
+        ignore line: [@m64]
+        link line: [ "/usr/bin/ld" -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_30ed9 /usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crt1.o /usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/9/crtbegin.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/9 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/usr/lib/x86_64-linux-gnu/../../lib64 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../.. -L/usr/lib/llvm-12/bin/../lib -L/lib -L/usr/lib --unresolved-symbols=ignore-all CMakeFiles/cmTC_30ed9.dir/CMakeCXXCompilerABI.cpp.o /home/zzzccc/test1/cfl-llvm-rt.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/bin/../lib/gcc/x86_64-linux-gnu/9/crtend.o /usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
+          arg [/usr/bin/ld] ==> ignore
+          arg [-zrelro] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [--build-id] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_30ed9] ==> ignore
+          arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crt1.o] ==> obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crt1.o]
+          arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o]
+          arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/crtbegin.o] ==> obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/crtbegin.o]
+          arg [-L/usr/bin/../lib/gcc/x86_64-linux-gnu/9] ==> dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/9]
+          arg [-L/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu] ==> dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu]
+          arg [-L/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../lib64] ==> dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../lib64]
+          arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+          arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+          arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+          arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+          arg [-L/usr/lib/x86_64-linux-gnu/../../lib64] ==> dir [/usr/lib/x86_64-linux-gnu/../../lib64]
+          arg [-L/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../..] ==> dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../..]
+          arg [-L/usr/lib/llvm-12/bin/../lib] ==> dir [/usr/lib/llvm-12/bin/../lib]
+          arg [-L/lib] ==> dir [/lib]
+          arg [-L/usr/lib] ==> dir [/usr/lib]
+          arg [--unresolved-symbols=ignore-all] ==> ignore
+          arg [CMakeFiles/cmTC_30ed9.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [/home/zzzccc/test1/cfl-llvm-rt.o] ==> obj [/home/zzzccc/test1/cfl-llvm-rt.o]
+          arg [-lgcc] ==> lib [gcc]
+          arg [--as-needed] ==> ignore
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [--no-as-needed] ==> ignore
+          arg [-lc] ==> lib [c]
+          arg [-lgcc] ==> lib [gcc]
+          arg [--as-needed] ==> ignore
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [--no-as-needed] ==> ignore
+          arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/crtend.o] ==> obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/crtend.o]
+          arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o] ==> obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
+        collapse obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crt1.o] ==> [/usr/lib/x86_64-linux-gnu/crt1.o]
+        collapse obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o] ==> [/usr/lib/x86_64-linux-gnu/crti.o]
+        collapse obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/crtbegin.o] ==> [/usr/lib/gcc/x86_64-linux-gnu/9/crtbegin.o]
+        collapse obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/crtend.o] ==> [/usr/lib/gcc/x86_64-linux-gnu/9/crtend.o]
+        collapse obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o] ==> [/usr/lib/x86_64-linux-gnu/crtn.o]
+        collapse library dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/9] ==> [/usr/lib/gcc/x86_64-linux-gnu/9]
+        collapse library dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../lib64] ==> [/usr/lib64]
+        collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+        collapse library dir [/lib/../lib64] ==> [/lib64]
+        collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+        collapse library dir [/usr/lib/x86_64-linux-gnu/../../lib64] ==> [/usr/lib64]
+        collapse library dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../..] ==> [/usr/lib]
+        collapse library dir [/usr/lib/llvm-12/bin/../lib] ==> [/usr/lib/llvm-12/lib]
+        collapse library dir [/lib] ==> [/lib]
+        collapse library dir [/usr/lib] ==> [/usr/lib]
+        implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+        implicit objs: [/usr/lib/x86_64-linux-gnu/crt1.o;/usr/lib/x86_64-linux-gnu/crti.o;/usr/lib/gcc/x86_64-linux-gnu/9/crtbegin.o;/home/zzzccc/test1/cfl-llvm-rt.o;/usr/lib/gcc/x86_64-linux-gnu/9/crtend.o;/usr/lib/x86_64-linux-gnu/crtn.o]
+        implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/9;/usr/lib/x86_64-linux-gnu;/usr/lib64;/lib/x86_64-linux-gnu;/lib64;/usr/lib;/usr/lib/llvm-12/lib;/lib]
+        implicit fwks: []
+      
+      
+...

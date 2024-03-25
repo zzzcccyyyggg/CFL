@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/zzzccc/zcFuzzing/build/Pass/cmake_install.cmake")
+  include("/home/zzzccc/zcFuzzing/build/CFL-LLVM/cmake_install.cmake")
 
 endif()
 

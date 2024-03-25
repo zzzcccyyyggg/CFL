@@ -26,4 +26,20 @@
 
 #define SHM_ENV_VAR         "__AFL_SHM_ID"
 
+/* Distinctive bitmap signature used to indicate failed execution: */
+
+#define EXEC_FAIL_SIG       0xfee1dead
+
+#define EXEC_TIMEOUT        1000
+#define FORK_WAIT_MULT      1000
+
+/* 管道号 */
+#define FORKSRV_FD 247
+
+#define MAX_ARGS 20
+
+#define MAX_PATH_LENGTH 50
+
+#define HASH_CONST          0xa5b35705
+
 #endif // _HAVE_CONFIG_H

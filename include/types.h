@@ -1,4 +1,4 @@
-//标志下使用了自己定义的相关TYPE
+//标志下使用了自己定义的相关 TYPE
 #ifndef _HAVE_TYPES_H
 #define _HAVE_TYPES_H
 
@@ -9,7 +9,7 @@
 typedef uint8_t  u8;
 typedef uint16_t u16;
 typedef uint32_t u32;
-//u64的处理
+//u64 的处理
 #ifdef __x86_64__
 typedef unsigned long long u64;
 #else
@@ -22,7 +22,7 @@ typedef int16_t  s16;
 typedef int32_t  s32;
 typedef int64_t  s64;
 
-//利用下划线来区分宏的参数和其他变量 并利用ifndef来防止多次导入头文件使得重复定义
+//利用下划线来区分宏的参数和其他变量 并利用 ifndef 来防止多次导入头文件使得重复定义
 #ifndef MIN
 #  define MIN(_a,_b) ((_a) > (_b) ? (_b) : (_a))
 #  define MAX(_a,_b) ((_a) > (_b) ? (_a) : (_b))
@@ -52,10 +52,10 @@ typedef int64_t  s64;
 #define MEM_BARRIER() \
   __asm__ volatile("" ::: "memory")
   
-//likely和unlikely宏可以用来显式地告诉编译器大多数情况下哪个分支将被执行，
+//likely 和 unlikely 宏可以用来显式地告诉编译器大多数情况下哪个分支将被执行，
 //从而编译器可以做出更好的指令流水线安排，以提高程序的执行速度。
 //例如，对于错误处理代码，通常错误发生的频率较低，
-//因此可以使用unlikely来注明错误处理分支不太可能执行
+//因此可以使用 unlikely 来注明错误处理分支不太可能执行
 #define likely(_x)   __builtin_expect(!!(_x), 1)
 #define unlikely(_x)  __builtin_expect(!!(_x), 0)
 

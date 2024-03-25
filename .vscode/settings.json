@@ -1,14 +1,3 @@
 {
-    "files.associations": {
-        "allocator_inheritance.h": "c",
-        "stdlib.h": "c",
-        "types.h": "c",
-        "array": "cpp",
-        "tuple": "cpp",
-        "utility": "cpp",
-        "bitset": "cpp",
-        "vim.h": "c"
-    },
-    "C_Cpp.errorSquiggles": "disabled",
-    "cmake.sourceDirectory": "/home/zzzccc/zcFuzzing/Pass"
+    "git.ignoreLimitWarning": true
 }

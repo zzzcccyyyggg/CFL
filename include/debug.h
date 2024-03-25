@@ -149,6 +149,15 @@
 #  define PT(x...)    fprintf(stderr, x)
 #endif /* ^MESSAGES_TO_STDOUT */
 
+//print to file  
+#define PTF(Filename,x...)    do { \
+                            FILE* fp = fopen(Filename, "a"); \
+                            if (fp != NULL) { \
+                                fprintf(fp, x); \
+                                fclose(fp); \
+                            } \
+                        } while (0)
+
 #define WARNF(x...) do { \
     PT(cYEL "[!] " cBRI "WARNING: " cRST x); \
     PT(cRST "\n"); \
@@ -176,6 +185,20 @@ __LINE__：这是一个整数，表示当前源代码中的行号。它表示包
     exit(1); \
   } while (0)
 
+#define PFATAL(x...) do { \
+    fflush(stdout); \
+    PT(bSTOP RESET_G1 CURSOR_SHOW cRST cLRD "\n[-]  SYSTEM ERROR : " \
+         cBRI x); \
+    PT(cLRD "\n    Stop location : " cRST "%s(), %s:%u\n", \
+         __FUNCTION__, __FILE__, __LINE__); \
+    PT(cLRD "       OS message : " cRST "%s\n", strerror(errno)); \
+    exit(1); \
+  } while (0)
+
+#define RPFATAL(res, x...) do { \
+    if (res < 0) PFATAL(x); else FATAL(x); \
+  } while (0)
+
 /* Die by calling abort() to provide a core dump. */
 
 #define ABORT(x...) do { \
@@ -186,6 +209,21 @@ __LINE__：这是一个整数，表示当前源代码中的行号。它表示包
     abort(); \
   } while (0)
 
+/* Show a prefixed "doing something" message. */
+
+#define ACTF(x...) do { \
+    PT(cLBL "[*] " cRST x); \
+    PT(cRST "\n"); \
+  } while (0)
+
 /* Die by calling abort() to provide a core dump. */
+
+#define check_write(fd, buf, len, fn) do { \
+    u32 _len = (len); \
+    s32 _res = write(fd, buf, _len); \
+    if (_res != _len) RPFATAL(_res, "Short write to %s", fn); \
+  } while (0)
+
+
 
 #endif/* _HAVE_DEBUG_H */

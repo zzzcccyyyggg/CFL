@@ -1,0 +1,130 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "CFL-LLVM/CMakeFiles/cfl-llvm-rt-64.dir/./cfl-llvm-rt.o.c.o"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"target_compile_options",
+			"include_directories"
+		],
+		"files" : 
+		[
+			"CFL-LLVM/CMakeLists.txt",
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 35,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 36,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 20,
+				"parent" : 3
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 11,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : " -O3 -funroll-loops -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\\\"\\\" -DBIN_PATH=\\\"\\\" -DVERSION=\\\"\\\" -g -std=gnu11 -fcolor-diagnostics   -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS"
+				},
+				{
+					"backtrace" : 2,
+					"fragment" : "-m64"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 4,
+					"path" : "/home/zzzccc/zcFuzzing"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/zzzccc/zcFuzzing/include"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/usr/lib/llvm-12/include"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/zzzccc/zcFuzzing/CFL-LLVM/./include"
+				}
+			],
+			"language" : "C",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					1
+				],
+				"standard" : "11"
+			},
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"id" : "cfl-llvm-rt-64::@ac92e820ed20d6eaa2d1",
+	"name" : "cfl-llvm-rt-64",
+	"paths" : 
+	{
+		"build" : "CFL-LLVM",
+		"source" : "CFL-LLVM"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "CFL-LLVM/cfl-llvm-rt.o.c",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "OBJECT_LIBRARY"
+}

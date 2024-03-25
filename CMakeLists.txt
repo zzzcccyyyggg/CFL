@@ -1,38 +1,26 @@
+# 指定 CMake 的最小版本要求
 cmake_minimum_required(VERSION 3.6)
-project(CflLLVMPass)
 
-#CflLLVMPass.so 
-# LLVM uses C++17.
-set(CMAKE_CXX_STANDARD 17)
-find_package(LLVM REQUIRED CONFIG)
-# Include the part of LLVM's CMake libraries that defines
-separate_arguments(LLVM_DEFINITIONS_LIST NATIVE_COMMAND ${LLVM_DEFINITIONS})
-add_definitions(${LLVM_DEFINITIONS})
-include_directories(${LLVM_INCLUDE_DIRS} "./include")
-link_directories(${LLVM_LIBRARY_DIRS})
-# Our pass lives in this subdirectory.
-add_subdirectory(Pass)
+# 设置项目名称和版本
+project(MyFuzzer VERSION 1.0)
 
-#
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O3 -funroll-loops -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\\\"${HELPER_PATH}\\\" -DBIN_PATH=\\\"${BIN_PATH}\\\" -DVERSION=\\\"${VERSION}\\\"")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -funroll-loops -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DVERSION=\\\"${VERSION}\\\" -Wno-variadic-macros")
+# 设置 C 标准
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD_REQUIRED True)
 
+# 创建一个变量，包含所有的源文件
+set(SOURCES
+    cfl-fuzz.c
+)
 
-# Executables and objects
-add_executable(cfl-clang cfl-clang.c)
-set_target_properties(cfl-clang PROPERTIES COMPILE_FLAGS "${CMAKE_C_FLAGS}")
+# 指定生成目标
+add_executable(MyFuzzer ${SOURCES})
 
-add_library(cfl-llvm-rt OBJECT cfl-llvm-rt.o.c)
-set_target_properties(cfl-llvm-rt PROPERTIES OUTPUT_NAME "cfl-llvm-rt")
+# 如果有需要包含的其他头文件目录，使用 include_directories 指定
+include_directories(
+    ${PROJECT_SOURCE_DIR}
+    ${PROJECT_SOURCE_DIR}/include
+    # 如果有其他目录也包含头文件，继续添加路径
+)
 
-# 构建 32 位目标文件
-add_library(cfl-llvm-rt-32 OBJECT cfl-llvm-rt.o.c)
-target_compile_options(cfl-llvm-rt-32 PRIVATE -m32)
-set_target_properties(cfl-llvm-rt-32 PROPERTIES OUTPUT_NAME "cfl-llvm-rt-32")
-
-
-# 构建 64 位目标文件
-add_library(cfl-llvm-rt-64 OBJECT cfl-llvm-rt.o.c)
-target_compile_options(cfl-llvm-rt-64 PRIVATE -m64)
-set_target_properties(cfl-llvm-rt-64 PROPERTIES OUTPUT_NAME "cfl-llvm-rt-64")
-
+add_subdirectory(CFL-LLVM)

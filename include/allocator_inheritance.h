@@ -4,6 +4,8 @@
 #include "./types.h"
 #include "./config.h"
 #include "./debug.h"
+#include <fcntl.h>
+#include <errno.h>   
 
 //Cf is cc 's fuzzing
 #define MAX_ALLOC           0x40000000
@@ -21,6 +23,15 @@
 #define ALLOC_C1(_ptr)  (((u32*)(_ptr))[-2])
 #define ALLOC_S(_ptr)   (((u32*)(_ptr))[-1])
 #define ALLOC_C2(_ptr)  (((u8*)(_ptr))[ALLOC_S(_ptr)])
+
+#define alloc_printf(_str...) ({ \
+    u8* _tmp; \
+    s32 _len = snprintf(NULL, 0, _str); \
+    if (_len < 0) FATAL("Whoa, snprintf() fails?!"); \
+    _tmp = check_alloc(_len + 1); \
+    snprintf((char*)_tmp, _len + 1, _str); \
+    _tmp; \
+  })
 
 //检查请求的大小是否过大，超出了允许的最大值
 #define ALLOC_CHECK_SIZE(_s) do { \

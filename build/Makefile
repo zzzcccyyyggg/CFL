@@ -56,6 +56,18 @@ CMAKE_BINARY_DIR = /home/zzzccc/zcFuzzing/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -67,6 +79,17 @@ install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # Special rule for the target install
 install: preinstall
@@ -101,29 +124,6 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
-
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zzzccc/zcFuzzing/build/CMakeFiles /home/zzzccc/zcFuzzing/build/CMakeFiles/progress.marks
@@ -157,6 +157,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named MyFuzzer
+
+# Build rule for target.
+MyFuzzer: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 MyFuzzer
+.PHONY : MyFuzzer
+
+# fast build rule for target.
+MyFuzzer/fast:
+	$(MAKE) -f CMakeFiles/MyFuzzer.dir/build.make CMakeFiles/MyFuzzer.dir/build
+.PHONY : MyFuzzer/fast
+
+#=============================================================================
 # Target rules for targets named cfl-llvm-rt-64
 
 # Build rule for target.
@@ -166,7 +179,7 @@ cfl-llvm-rt-64: cmake_check_build_system
 
 # fast build rule for target.
 cfl-llvm-rt-64/fast:
-	$(MAKE) -f CMakeFiles/cfl-llvm-rt-64.dir/build.make CMakeFiles/cfl-llvm-rt-64.dir/build
+	$(MAKE) -f CFL-LLVM/CMakeFiles/cfl-llvm-rt-64.dir/build.make CFL-LLVM/CMakeFiles/cfl-llvm-rt-64.dir/build
 .PHONY : cfl-llvm-rt-64/fast
 
 #=============================================================================
@@ -179,7 +192,7 @@ cfl-llvm-rt-32: cmake_check_build_system
 
 # fast build rule for target.
 cfl-llvm-rt-32/fast:
-	$(MAKE) -f CMakeFiles/cfl-llvm-rt-32.dir/build.make CMakeFiles/cfl-llvm-rt-32.dir/build
+	$(MAKE) -f CFL-LLVM/CMakeFiles/cfl-llvm-rt-32.dir/build.make CFL-LLVM/CMakeFiles/cfl-llvm-rt-32.dir/build
 .PHONY : cfl-llvm-rt-32/fast
 
 #=============================================================================
@@ -192,7 +205,7 @@ cfl-llvm-rt: cmake_check_build_system
 
 # fast build rule for target.
 cfl-llvm-rt/fast:
-	$(MAKE) -f CMakeFiles/cfl-llvm-rt.dir/build.make CMakeFiles/cfl-llvm-rt.dir/build
+	$(MAKE) -f CFL-LLVM/CMakeFiles/cfl-llvm-rt.dir/build.make CFL-LLVM/CMakeFiles/cfl-llvm-rt.dir/build
 .PHONY : cfl-llvm-rt/fast
 
 #=============================================================================
@@ -205,7 +218,7 @@ cfl-clang: cmake_check_build_system
 
 # fast build rule for target.
 cfl-clang/fast:
-	$(MAKE) -f CMakeFiles/cfl-clang.dir/build.make CMakeFiles/cfl-clang.dir/build
+	$(MAKE) -f CFL-LLVM/CMakeFiles/cfl-clang.dir/build.make CFL-LLVM/CMakeFiles/cfl-clang.dir/build
 .PHONY : cfl-clang/fast
 
 #=============================================================================
@@ -218,7 +231,7 @@ acc_gen: cmake_check_build_system
 
 # fast build rule for target.
 acc_gen/fast:
-	$(MAKE) -f CMakeFiles/acc_gen.dir/build.make CMakeFiles/acc_gen.dir/build
+	$(MAKE) -f CFL-LLVM/CMakeFiles/acc_gen.dir/build.make CFL-LLVM/CMakeFiles/acc_gen.dir/build
 .PHONY : acc_gen/fast
 
 #=============================================================================
@@ -231,7 +244,7 @@ omp_gen: cmake_check_build_system
 
 # fast build rule for target.
 omp_gen/fast:
-	$(MAKE) -f CMakeFiles/omp_gen.dir/build.make CMakeFiles/omp_gen.dir/build
+	$(MAKE) -f CFL-LLVM/CMakeFiles/omp_gen.dir/build.make CFL-LLVM/CMakeFiles/omp_gen.dir/build
 .PHONY : omp_gen/fast
 
 #=============================================================================
@@ -244,7 +257,7 @@ intrinsics_gen: cmake_check_build_system
 
 # fast build rule for target.
 intrinsics_gen/fast:
-	$(MAKE) -f CMakeFiles/intrinsics_gen.dir/build.make CMakeFiles/intrinsics_gen.dir/build
+	$(MAKE) -f CFL-LLVM/CMakeFiles/intrinsics_gen.dir/build.make CFL-LLVM/CMakeFiles/intrinsics_gen.dir/build
 .PHONY : intrinsics_gen/fast
 
 #=============================================================================
@@ -257,7 +270,7 @@ install-CflLLVMPass-stripped: cmake_check_build_system
 
 # fast build rule for target.
 install-CflLLVMPass-stripped/fast:
-	$(MAKE) -f Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/build.make Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/build
+	$(MAKE) -f CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/build.make CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/build
 .PHONY : install-CflLLVMPass-stripped/fast
 
 #=============================================================================
@@ -270,7 +283,7 @@ install-CflLLVMPass: cmake_check_build_system
 
 # fast build rule for target.
 install-CflLLVMPass/fast:
-	$(MAKE) -f Pass/CMakeFiles/install-CflLLVMPass.dir/build.make Pass/CMakeFiles/install-CflLLVMPass.dir/build
+	$(MAKE) -f CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass.dir/build.make CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass.dir/build
 .PHONY : install-CflLLVMPass/fast
 
 #=============================================================================
@@ -283,68 +296,35 @@ CflLLVMPass: cmake_check_build_system
 
 # fast build rule for target.
 CflLLVMPass/fast:
-	$(MAKE) -f Pass/CMakeFiles/CflLLVMPass.dir/build.make Pass/CMakeFiles/CflLLVMPass.dir/build
+	$(MAKE) -f CFL-LLVM/Pass/CMakeFiles/CflLLVMPass.dir/build.make CFL-LLVM/Pass/CMakeFiles/CflLLVMPass.dir/build
 .PHONY : CflLLVMPass/fast
 
-cfl-clang.o: cfl-clang.c.o
+cfl-fuzz.o: cfl-fuzz.c.o
 
-.PHONY : cfl-clang.o
-
-# target to build an object file
-cfl-clang.c.o:
-	$(MAKE) -f CMakeFiles/cfl-clang.dir/build.make CMakeFiles/cfl-clang.dir/cfl-clang.c.o
-.PHONY : cfl-clang.c.o
-
-cfl-clang.i: cfl-clang.c.i
-
-.PHONY : cfl-clang.i
-
-# target to preprocess a source file
-cfl-clang.c.i:
-	$(MAKE) -f CMakeFiles/cfl-clang.dir/build.make CMakeFiles/cfl-clang.dir/cfl-clang.c.i
-.PHONY : cfl-clang.c.i
-
-cfl-clang.s: cfl-clang.c.s
-
-.PHONY : cfl-clang.s
-
-# target to generate assembly for a file
-cfl-clang.c.s:
-	$(MAKE) -f CMakeFiles/cfl-clang.dir/build.make CMakeFiles/cfl-clang.dir/cfl-clang.c.s
-.PHONY : cfl-clang.c.s
-
-cfl-llvm-rt.o.o: cfl-llvm-rt.o.c.o
-
-.PHONY : cfl-llvm-rt.o.o
+.PHONY : cfl-fuzz.o
 
 # target to build an object file
-cfl-llvm-rt.o.c.o:
-	$(MAKE) -f CMakeFiles/cfl-llvm-rt-64.dir/build.make CMakeFiles/cfl-llvm-rt-64.dir/cfl-llvm-rt.o.c.o
-	$(MAKE) -f CMakeFiles/cfl-llvm-rt-32.dir/build.make CMakeFiles/cfl-llvm-rt-32.dir/cfl-llvm-rt.o.c.o
-	$(MAKE) -f CMakeFiles/cfl-llvm-rt.dir/build.make CMakeFiles/cfl-llvm-rt.dir/cfl-llvm-rt.o.c.o
-.PHONY : cfl-llvm-rt.o.c.o
+cfl-fuzz.c.o:
+	$(MAKE) -f CMakeFiles/MyFuzzer.dir/build.make CMakeFiles/MyFuzzer.dir/cfl-fuzz.c.o
+.PHONY : cfl-fuzz.c.o
 
-cfl-llvm-rt.o.i: cfl-llvm-rt.o.c.i
+cfl-fuzz.i: cfl-fuzz.c.i
 
-.PHONY : cfl-llvm-rt.o.i
+.PHONY : cfl-fuzz.i
 
 # target to preprocess a source file
-cfl-llvm-rt.o.c.i:
-	$(MAKE) -f CMakeFiles/cfl-llvm-rt-64.dir/build.make CMakeFiles/cfl-llvm-rt-64.dir/cfl-llvm-rt.o.c.i
-	$(MAKE) -f CMakeFiles/cfl-llvm-rt-32.dir/build.make CMakeFiles/cfl-llvm-rt-32.dir/cfl-llvm-rt.o.c.i
-	$(MAKE) -f CMakeFiles/cfl-llvm-rt.dir/build.make CMakeFiles/cfl-llvm-rt.dir/cfl-llvm-rt.o.c.i
-.PHONY : cfl-llvm-rt.o.c.i
+cfl-fuzz.c.i:
+	$(MAKE) -f CMakeFiles/MyFuzzer.dir/build.make CMakeFiles/MyFuzzer.dir/cfl-fuzz.c.i
+.PHONY : cfl-fuzz.c.i
 
-cfl-llvm-rt.o.s: cfl-llvm-rt.o.c.s
+cfl-fuzz.s: cfl-fuzz.c.s
 
-.PHONY : cfl-llvm-rt.o.s
+.PHONY : cfl-fuzz.s
 
 # target to generate assembly for a file
-cfl-llvm-rt.o.c.s:
-	$(MAKE) -f CMakeFiles/cfl-llvm-rt-64.dir/build.make CMakeFiles/cfl-llvm-rt-64.dir/cfl-llvm-rt.o.c.s
-	$(MAKE) -f CMakeFiles/cfl-llvm-rt-32.dir/build.make CMakeFiles/cfl-llvm-rt-32.dir/cfl-llvm-rt.o.c.s
-	$(MAKE) -f CMakeFiles/cfl-llvm-rt.dir/build.make CMakeFiles/cfl-llvm-rt.dir/cfl-llvm-rt.o.c.s
-.PHONY : cfl-llvm-rt.o.c.s
+cfl-fuzz.c.s:
+	$(MAKE) -f CMakeFiles/MyFuzzer.dir/build.make CMakeFiles/MyFuzzer.dir/cfl-fuzz.c.s
+.PHONY : cfl-fuzz.c.s
 
 # Help Target
 help:
@@ -352,28 +332,26 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... cfl-llvm-rt-64"
+	@echo "... install/strip"
 	@echo "... install/local"
-	@echo "... cfl-llvm-rt-32"
+	@echo "... edit_cache"
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... MyFuzzer"
+	@echo "... cfl-llvm-rt-64"
+	@echo "... cfl-llvm-rt-32"
 	@echo "... cfl-llvm-rt"
 	@echo "... cfl-clang"
 	@echo "... acc_gen"
-	@echo "... edit_cache"
 	@echo "... omp_gen"
-	@echo "... install/strip"
 	@echo "... intrinsics_gen"
 	@echo "... install-CflLLVMPass-stripped"
 	@echo "... install-CflLLVMPass"
 	@echo "... CflLLVMPass"
-	@echo "... cfl-clang.o"
-	@echo "... cfl-clang.i"
-	@echo "... cfl-clang.s"
-	@echo "... cfl-llvm-rt.o.o"
-	@echo "... cfl-llvm-rt.o.i"
-	@echo "... cfl-llvm-rt.o.s"
+	@echo "... cfl-fuzz.o"
+	@echo "... cfl-fuzz.i"
+	@echo "... cfl-fuzz.s"
 .PHONY : help
 
 

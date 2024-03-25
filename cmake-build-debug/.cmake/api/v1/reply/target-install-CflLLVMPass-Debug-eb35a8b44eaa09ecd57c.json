@@ -1,0 +1,95 @@
+{
+	"backtrace" : 3,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target",
+			"add_llvm_install_targets",
+			"add_llvm_library",
+			"add_dependencies"
+		],
+		"files" : 
+		[
+			"/usr/lib/llvm-12/lib/cmake/llvm/AddLLVM.cmake",
+			"CFL-LLVM/Pass/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 5,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 812,
+				"parent" : 1
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 694,
+				"parent" : 2
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 710,
+				"parent" : 2
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 4,
+			"id" : "CflLLVMPass::@f53394369712547a5ce9"
+		}
+	],
+	"id" : "install-CflLLVMPass::@f53394369712547a5ce9",
+	"name" : "install-CflLLVMPass",
+	"paths" : 
+	{
+		"build" : "CFL-LLVM/Pass",
+		"source" : "CFL-LLVM/Pass"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 3,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}

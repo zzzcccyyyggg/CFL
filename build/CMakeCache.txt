@@ -145,7 +145,22 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=CflLLVMPass
+CMAKE_PROJECT_NAME:STATIC=MyFuzzer
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION:STATIC=1.0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MAJOR:STATIC=1
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MINOR:STATIC=0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_PATCH:STATIC=
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_TWEAK:STATIC=
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -210,16 +225,22 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Value Computed by CMake
-CflLLVMPass_BINARY_DIR:STATIC=/home/zzzccc/zcFuzzing/build
+CflLLVMPass_BINARY_DIR:STATIC=/home/zzzccc/zcFuzzing/build/CFL-LLVM
 
 //Dependencies for the target
 CflLLVMPass_LIB_DEPENDS:STATIC=general;LLVM;
 
 //Value Computed by CMake
-CflLLVMPass_SOURCE_DIR:STATIC=/home/zzzccc/zcFuzzing
+CflLLVMPass_SOURCE_DIR:STATIC=/home/zzzccc/zcFuzzing/CFL-LLVM
 
 //The directory containing a CMake configuration file for LLVM.
 LLVM_DIR:PATH=/usr/lib/llvm-12/cmake
+
+//Value Computed by CMake
+MyFuzzer_BINARY_DIR:STATIC=/home/zzzccc/zcFuzzing/build
+
+//Value Computed by CMake
+MyFuzzer_SOURCE_DIR:STATIC=/home/zzzccc/zcFuzzing
 
 //Path to a file.
 ZLIB_INCLUDE_DIR:PATH=/usr/include
@@ -335,7 +356,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

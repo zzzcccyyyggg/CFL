@@ -7,8 +7,9 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
+  "../CFL-LLVM/CMakeLists.txt"
+  "../CFL-LLVM/Pass/CMakeLists.txt"
   "../CMakeLists.txt"
-  "../Pass/CMakeLists.txt"
   "CMakeFiles/3.16.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.16.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.16.3/CMakeSystem.cmake"
@@ -56,19 +57,21 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
-  "Pass/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "CFL-LLVM/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "CFL-LLVM/Pass/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/cfl-llvm-rt-64.dir/DependInfo.cmake"
-  "CMakeFiles/cfl-llvm-rt-32.dir/DependInfo.cmake"
-  "CMakeFiles/cfl-llvm-rt.dir/DependInfo.cmake"
-  "CMakeFiles/cfl-clang.dir/DependInfo.cmake"
-  "CMakeFiles/acc_gen.dir/DependInfo.cmake"
-  "CMakeFiles/omp_gen.dir/DependInfo.cmake"
-  "CMakeFiles/intrinsics_gen.dir/DependInfo.cmake"
-  "Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/DependInfo.cmake"
-  "Pass/CMakeFiles/install-CflLLVMPass.dir/DependInfo.cmake"
-  "Pass/CMakeFiles/CflLLVMPass.dir/DependInfo.cmake"
+  "CMakeFiles/MyFuzzer.dir/DependInfo.cmake"
+  "CFL-LLVM/CMakeFiles/cfl-llvm-rt-64.dir/DependInfo.cmake"
+  "CFL-LLVM/CMakeFiles/cfl-llvm-rt-32.dir/DependInfo.cmake"
+  "CFL-LLVM/CMakeFiles/cfl-llvm-rt.dir/DependInfo.cmake"
+  "CFL-LLVM/CMakeFiles/cfl-clang.dir/DependInfo.cmake"
+  "CFL-LLVM/CMakeFiles/acc_gen.dir/DependInfo.cmake"
+  "CFL-LLVM/CMakeFiles/omp_gen.dir/DependInfo.cmake"
+  "CFL-LLVM/CMakeFiles/intrinsics_gen.dir/DependInfo.cmake"
+  "CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/DependInfo.cmake"
+  "CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass.dir/DependInfo.cmake"
+  "CFL-LLVM/Pass/CMakeFiles/CflLLVMPass.dir/DependInfo.cmake"
   )

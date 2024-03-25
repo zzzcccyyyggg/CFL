@@ -53,320 +53,367 @@ CMAKE_BINARY_DIR = /home/zzzccc/zcFuzzing/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/cfl-llvm-rt-64.dir/all
-all: CMakeFiles/cfl-llvm-rt-32.dir/all
-all: CMakeFiles/cfl-llvm-rt.dir/all
-all: CMakeFiles/cfl-clang.dir/all
-all: Pass/all
+all: CMakeFiles/MyFuzzer.dir/all
+all: CFL-LLVM/all
 
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall: Pass/preinstall
+preinstall: CFL-LLVM/preinstall
 
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/cfl-llvm-rt-64.dir/clean
-clean: CMakeFiles/cfl-llvm-rt-32.dir/clean
-clean: CMakeFiles/cfl-llvm-rt.dir/clean
-clean: CMakeFiles/cfl-clang.dir/clean
-clean: CMakeFiles/acc_gen.dir/clean
-clean: CMakeFiles/omp_gen.dir/clean
-clean: CMakeFiles/intrinsics_gen.dir/clean
-clean: Pass/clean
+clean: CMakeFiles/MyFuzzer.dir/clean
+clean: CFL-LLVM/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory Pass
+# Directory level rules for directory CFL-LLVM
 
 # Recursive "all" directory target.
-Pass/all: Pass/CMakeFiles/CflLLVMPass.dir/all
+CFL-LLVM/all: CFL-LLVM/CMakeFiles/cfl-llvm-rt-64.dir/all
+CFL-LLVM/all: CFL-LLVM/CMakeFiles/cfl-llvm-rt-32.dir/all
+CFL-LLVM/all: CFL-LLVM/CMakeFiles/cfl-llvm-rt.dir/all
+CFL-LLVM/all: CFL-LLVM/CMakeFiles/cfl-clang.dir/all
+CFL-LLVM/all: CFL-LLVM/Pass/all
 
-.PHONY : Pass/all
+.PHONY : CFL-LLVM/all
 
 # Recursive "preinstall" directory target.
-Pass/preinstall:
+CFL-LLVM/preinstall: CFL-LLVM/Pass/preinstall
 
-.PHONY : Pass/preinstall
+.PHONY : CFL-LLVM/preinstall
 
 # Recursive "clean" directory target.
-Pass/clean: Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/clean
-Pass/clean: Pass/CMakeFiles/install-CflLLVMPass.dir/clean
-Pass/clean: Pass/CMakeFiles/CflLLVMPass.dir/clean
+CFL-LLVM/clean: CFL-LLVM/CMakeFiles/cfl-llvm-rt-64.dir/clean
+CFL-LLVM/clean: CFL-LLVM/CMakeFiles/cfl-llvm-rt-32.dir/clean
+CFL-LLVM/clean: CFL-LLVM/CMakeFiles/cfl-llvm-rt.dir/clean
+CFL-LLVM/clean: CFL-LLVM/CMakeFiles/cfl-clang.dir/clean
+CFL-LLVM/clean: CFL-LLVM/CMakeFiles/acc_gen.dir/clean
+CFL-LLVM/clean: CFL-LLVM/CMakeFiles/omp_gen.dir/clean
+CFL-LLVM/clean: CFL-LLVM/CMakeFiles/intrinsics_gen.dir/clean
+CFL-LLVM/clean: CFL-LLVM/Pass/clean
 
-.PHONY : Pass/clean
+.PHONY : CFL-LLVM/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/cfl-llvm-rt-64.dir
+# Directory level rules for directory CFL-LLVM/Pass
+
+# Recursive "all" directory target.
+CFL-LLVM/Pass/all: CFL-LLVM/Pass/CMakeFiles/CflLLVMPass.dir/all
+
+.PHONY : CFL-LLVM/Pass/all
+
+# Recursive "preinstall" directory target.
+CFL-LLVM/Pass/preinstall:
+
+.PHONY : CFL-LLVM/Pass/preinstall
+
+# Recursive "clean" directory target.
+CFL-LLVM/Pass/clean: CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/clean
+CFL-LLVM/Pass/clean: CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass.dir/clean
+CFL-LLVM/Pass/clean: CFL-LLVM/Pass/CMakeFiles/CflLLVMPass.dir/clean
+
+.PHONY : CFL-LLVM/Pass/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/MyFuzzer.dir
 
 # All Build rule for target.
-CMakeFiles/cfl-llvm-rt-64.dir/all:
-	$(MAKE) -f CMakeFiles/cfl-llvm-rt-64.dir/build.make CMakeFiles/cfl-llvm-rt-64.dir/depend
-	$(MAKE) -f CMakeFiles/cfl-llvm-rt-64.dir/build.make CMakeFiles/cfl-llvm-rt-64.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zzzccc/zcFuzzing/build/CMakeFiles --progress-num=8 "Built target cfl-llvm-rt-64"
-.PHONY : CMakeFiles/cfl-llvm-rt-64.dir/all
+CMakeFiles/MyFuzzer.dir/all:
+	$(MAKE) -f CMakeFiles/MyFuzzer.dir/build.make CMakeFiles/MyFuzzer.dir/depend
+	$(MAKE) -f CMakeFiles/MyFuzzer.dir/build.make CMakeFiles/MyFuzzer.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zzzccc/zcFuzzing/build/CMakeFiles --progress-num=4,5 "Built target MyFuzzer"
+.PHONY : CMakeFiles/MyFuzzer.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/cfl-llvm-rt-64.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zzzccc/zcFuzzing/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/cfl-llvm-rt-64.dir/all
+CMakeFiles/MyFuzzer.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zzzccc/zcFuzzing/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/MyFuzzer.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zzzccc/zcFuzzing/build/CMakeFiles 0
-.PHONY : CMakeFiles/cfl-llvm-rt-64.dir/rule
+.PHONY : CMakeFiles/MyFuzzer.dir/rule
 
 # Convenience name for target.
-cfl-llvm-rt-64: CMakeFiles/cfl-llvm-rt-64.dir/rule
+MyFuzzer: CMakeFiles/MyFuzzer.dir/rule
+
+.PHONY : MyFuzzer
+
+# clean rule for target.
+CMakeFiles/MyFuzzer.dir/clean:
+	$(MAKE) -f CMakeFiles/MyFuzzer.dir/build.make CMakeFiles/MyFuzzer.dir/clean
+.PHONY : CMakeFiles/MyFuzzer.dir/clean
+
+#=============================================================================
+# Target rules for target CFL-LLVM/CMakeFiles/cfl-llvm-rt-64.dir
+
+# All Build rule for target.
+CFL-LLVM/CMakeFiles/cfl-llvm-rt-64.dir/all:
+	$(MAKE) -f CFL-LLVM/CMakeFiles/cfl-llvm-rt-64.dir/build.make CFL-LLVM/CMakeFiles/cfl-llvm-rt-64.dir/depend
+	$(MAKE) -f CFL-LLVM/CMakeFiles/cfl-llvm-rt-64.dir/build.make CFL-LLVM/CMakeFiles/cfl-llvm-rt-64.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zzzccc/zcFuzzing/build/CMakeFiles --progress-num=10 "Built target cfl-llvm-rt-64"
+.PHONY : CFL-LLVM/CMakeFiles/cfl-llvm-rt-64.dir/all
+
+# Build rule for subdir invocation for target.
+CFL-LLVM/CMakeFiles/cfl-llvm-rt-64.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zzzccc/zcFuzzing/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 CFL-LLVM/CMakeFiles/cfl-llvm-rt-64.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zzzccc/zcFuzzing/build/CMakeFiles 0
+.PHONY : CFL-LLVM/CMakeFiles/cfl-llvm-rt-64.dir/rule
+
+# Convenience name for target.
+cfl-llvm-rt-64: CFL-LLVM/CMakeFiles/cfl-llvm-rt-64.dir/rule
 
 .PHONY : cfl-llvm-rt-64
 
 # clean rule for target.
-CMakeFiles/cfl-llvm-rt-64.dir/clean:
-	$(MAKE) -f CMakeFiles/cfl-llvm-rt-64.dir/build.make CMakeFiles/cfl-llvm-rt-64.dir/clean
-.PHONY : CMakeFiles/cfl-llvm-rt-64.dir/clean
+CFL-LLVM/CMakeFiles/cfl-llvm-rt-64.dir/clean:
+	$(MAKE) -f CFL-LLVM/CMakeFiles/cfl-llvm-rt-64.dir/build.make CFL-LLVM/CMakeFiles/cfl-llvm-rt-64.dir/clean
+.PHONY : CFL-LLVM/CMakeFiles/cfl-llvm-rt-64.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/cfl-llvm-rt-32.dir
+# Target rules for target CFL-LLVM/CMakeFiles/cfl-llvm-rt-32.dir
 
 # All Build rule for target.
-CMakeFiles/cfl-llvm-rt-32.dir/all:
-	$(MAKE) -f CMakeFiles/cfl-llvm-rt-32.dir/build.make CMakeFiles/cfl-llvm-rt-32.dir/depend
-	$(MAKE) -f CMakeFiles/cfl-llvm-rt-32.dir/build.make CMakeFiles/cfl-llvm-rt-32.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zzzccc/zcFuzzing/build/CMakeFiles --progress-num=7 "Built target cfl-llvm-rt-32"
-.PHONY : CMakeFiles/cfl-llvm-rt-32.dir/all
+CFL-LLVM/CMakeFiles/cfl-llvm-rt-32.dir/all:
+	$(MAKE) -f CFL-LLVM/CMakeFiles/cfl-llvm-rt-32.dir/build.make CFL-LLVM/CMakeFiles/cfl-llvm-rt-32.dir/depend
+	$(MAKE) -f CFL-LLVM/CMakeFiles/cfl-llvm-rt-32.dir/build.make CFL-LLVM/CMakeFiles/cfl-llvm-rt-32.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zzzccc/zcFuzzing/build/CMakeFiles --progress-num=9 "Built target cfl-llvm-rt-32"
+.PHONY : CFL-LLVM/CMakeFiles/cfl-llvm-rt-32.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/cfl-llvm-rt-32.dir/rule: cmake_check_build_system
+CFL-LLVM/CMakeFiles/cfl-llvm-rt-32.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zzzccc/zcFuzzing/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/cfl-llvm-rt-32.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CFL-LLVM/CMakeFiles/cfl-llvm-rt-32.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zzzccc/zcFuzzing/build/CMakeFiles 0
-.PHONY : CMakeFiles/cfl-llvm-rt-32.dir/rule
+.PHONY : CFL-LLVM/CMakeFiles/cfl-llvm-rt-32.dir/rule
 
 # Convenience name for target.
-cfl-llvm-rt-32: CMakeFiles/cfl-llvm-rt-32.dir/rule
+cfl-llvm-rt-32: CFL-LLVM/CMakeFiles/cfl-llvm-rt-32.dir/rule
 
 .PHONY : cfl-llvm-rt-32
 
 # clean rule for target.
-CMakeFiles/cfl-llvm-rt-32.dir/clean:
-	$(MAKE) -f CMakeFiles/cfl-llvm-rt-32.dir/build.make CMakeFiles/cfl-llvm-rt-32.dir/clean
-.PHONY : CMakeFiles/cfl-llvm-rt-32.dir/clean
+CFL-LLVM/CMakeFiles/cfl-llvm-rt-32.dir/clean:
+	$(MAKE) -f CFL-LLVM/CMakeFiles/cfl-llvm-rt-32.dir/build.make CFL-LLVM/CMakeFiles/cfl-llvm-rt-32.dir/clean
+.PHONY : CFL-LLVM/CMakeFiles/cfl-llvm-rt-32.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/cfl-llvm-rt.dir
+# Target rules for target CFL-LLVM/CMakeFiles/cfl-llvm-rt.dir
 
 # All Build rule for target.
-CMakeFiles/cfl-llvm-rt.dir/all:
-	$(MAKE) -f CMakeFiles/cfl-llvm-rt.dir/build.make CMakeFiles/cfl-llvm-rt.dir/depend
-	$(MAKE) -f CMakeFiles/cfl-llvm-rt.dir/build.make CMakeFiles/cfl-llvm-rt.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zzzccc/zcFuzzing/build/CMakeFiles --progress-num=6 "Built target cfl-llvm-rt"
-.PHONY : CMakeFiles/cfl-llvm-rt.dir/all
+CFL-LLVM/CMakeFiles/cfl-llvm-rt.dir/all:
+	$(MAKE) -f CFL-LLVM/CMakeFiles/cfl-llvm-rt.dir/build.make CFL-LLVM/CMakeFiles/cfl-llvm-rt.dir/depend
+	$(MAKE) -f CFL-LLVM/CMakeFiles/cfl-llvm-rt.dir/build.make CFL-LLVM/CMakeFiles/cfl-llvm-rt.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zzzccc/zcFuzzing/build/CMakeFiles --progress-num=8 "Built target cfl-llvm-rt"
+.PHONY : CFL-LLVM/CMakeFiles/cfl-llvm-rt.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/cfl-llvm-rt.dir/rule: cmake_check_build_system
+CFL-LLVM/CMakeFiles/cfl-llvm-rt.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zzzccc/zcFuzzing/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/cfl-llvm-rt.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CFL-LLVM/CMakeFiles/cfl-llvm-rt.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zzzccc/zcFuzzing/build/CMakeFiles 0
-.PHONY : CMakeFiles/cfl-llvm-rt.dir/rule
+.PHONY : CFL-LLVM/CMakeFiles/cfl-llvm-rt.dir/rule
 
 # Convenience name for target.
-cfl-llvm-rt: CMakeFiles/cfl-llvm-rt.dir/rule
+cfl-llvm-rt: CFL-LLVM/CMakeFiles/cfl-llvm-rt.dir/rule
 
 .PHONY : cfl-llvm-rt
 
 # clean rule for target.
-CMakeFiles/cfl-llvm-rt.dir/clean:
-	$(MAKE) -f CMakeFiles/cfl-llvm-rt.dir/build.make CMakeFiles/cfl-llvm-rt.dir/clean
-.PHONY : CMakeFiles/cfl-llvm-rt.dir/clean
+CFL-LLVM/CMakeFiles/cfl-llvm-rt.dir/clean:
+	$(MAKE) -f CFL-LLVM/CMakeFiles/cfl-llvm-rt.dir/build.make CFL-LLVM/CMakeFiles/cfl-llvm-rt.dir/clean
+.PHONY : CFL-LLVM/CMakeFiles/cfl-llvm-rt.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/cfl-clang.dir
+# Target rules for target CFL-LLVM/CMakeFiles/cfl-clang.dir
 
 # All Build rule for target.
-CMakeFiles/cfl-clang.dir/all:
-	$(MAKE) -f CMakeFiles/cfl-clang.dir/build.make CMakeFiles/cfl-clang.dir/depend
-	$(MAKE) -f CMakeFiles/cfl-clang.dir/build.make CMakeFiles/cfl-clang.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zzzccc/zcFuzzing/build/CMakeFiles --progress-num=4,5 "Built target cfl-clang"
-.PHONY : CMakeFiles/cfl-clang.dir/all
+CFL-LLVM/CMakeFiles/cfl-clang.dir/all:
+	$(MAKE) -f CFL-LLVM/CMakeFiles/cfl-clang.dir/build.make CFL-LLVM/CMakeFiles/cfl-clang.dir/depend
+	$(MAKE) -f CFL-LLVM/CMakeFiles/cfl-clang.dir/build.make CFL-LLVM/CMakeFiles/cfl-clang.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zzzccc/zcFuzzing/build/CMakeFiles --progress-num=6,7 "Built target cfl-clang"
+.PHONY : CFL-LLVM/CMakeFiles/cfl-clang.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/cfl-clang.dir/rule: cmake_check_build_system
+CFL-LLVM/CMakeFiles/cfl-clang.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zzzccc/zcFuzzing/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/cfl-clang.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CFL-LLVM/CMakeFiles/cfl-clang.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zzzccc/zcFuzzing/build/CMakeFiles 0
-.PHONY : CMakeFiles/cfl-clang.dir/rule
+.PHONY : CFL-LLVM/CMakeFiles/cfl-clang.dir/rule
 
 # Convenience name for target.
-cfl-clang: CMakeFiles/cfl-clang.dir/rule
+cfl-clang: CFL-LLVM/CMakeFiles/cfl-clang.dir/rule
 
 .PHONY : cfl-clang
 
 # clean rule for target.
-CMakeFiles/cfl-clang.dir/clean:
-	$(MAKE) -f CMakeFiles/cfl-clang.dir/build.make CMakeFiles/cfl-clang.dir/clean
-.PHONY : CMakeFiles/cfl-clang.dir/clean
+CFL-LLVM/CMakeFiles/cfl-clang.dir/clean:
+	$(MAKE) -f CFL-LLVM/CMakeFiles/cfl-clang.dir/build.make CFL-LLVM/CMakeFiles/cfl-clang.dir/clean
+.PHONY : CFL-LLVM/CMakeFiles/cfl-clang.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/acc_gen.dir
+# Target rules for target CFL-LLVM/CMakeFiles/acc_gen.dir
 
 # All Build rule for target.
-CMakeFiles/acc_gen.dir/all:
-	$(MAKE) -f CMakeFiles/acc_gen.dir/build.make CMakeFiles/acc_gen.dir/depend
-	$(MAKE) -f CMakeFiles/acc_gen.dir/build.make CMakeFiles/acc_gen.dir/build
+CFL-LLVM/CMakeFiles/acc_gen.dir/all:
+	$(MAKE) -f CFL-LLVM/CMakeFiles/acc_gen.dir/build.make CFL-LLVM/CMakeFiles/acc_gen.dir/depend
+	$(MAKE) -f CFL-LLVM/CMakeFiles/acc_gen.dir/build.make CFL-LLVM/CMakeFiles/acc_gen.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zzzccc/zcFuzzing/build/CMakeFiles --progress-num= "Built target acc_gen"
-.PHONY : CMakeFiles/acc_gen.dir/all
+.PHONY : CFL-LLVM/CMakeFiles/acc_gen.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/acc_gen.dir/rule: cmake_check_build_system
+CFL-LLVM/CMakeFiles/acc_gen.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zzzccc/zcFuzzing/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/acc_gen.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CFL-LLVM/CMakeFiles/acc_gen.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zzzccc/zcFuzzing/build/CMakeFiles 0
-.PHONY : CMakeFiles/acc_gen.dir/rule
+.PHONY : CFL-LLVM/CMakeFiles/acc_gen.dir/rule
 
 # Convenience name for target.
-acc_gen: CMakeFiles/acc_gen.dir/rule
+acc_gen: CFL-LLVM/CMakeFiles/acc_gen.dir/rule
 
 .PHONY : acc_gen
 
 # clean rule for target.
-CMakeFiles/acc_gen.dir/clean:
-	$(MAKE) -f CMakeFiles/acc_gen.dir/build.make CMakeFiles/acc_gen.dir/clean
-.PHONY : CMakeFiles/acc_gen.dir/clean
+CFL-LLVM/CMakeFiles/acc_gen.dir/clean:
+	$(MAKE) -f CFL-LLVM/CMakeFiles/acc_gen.dir/build.make CFL-LLVM/CMakeFiles/acc_gen.dir/clean
+.PHONY : CFL-LLVM/CMakeFiles/acc_gen.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/omp_gen.dir
+# Target rules for target CFL-LLVM/CMakeFiles/omp_gen.dir
 
 # All Build rule for target.
-CMakeFiles/omp_gen.dir/all:
-	$(MAKE) -f CMakeFiles/omp_gen.dir/build.make CMakeFiles/omp_gen.dir/depend
-	$(MAKE) -f CMakeFiles/omp_gen.dir/build.make CMakeFiles/omp_gen.dir/build
+CFL-LLVM/CMakeFiles/omp_gen.dir/all:
+	$(MAKE) -f CFL-LLVM/CMakeFiles/omp_gen.dir/build.make CFL-LLVM/CMakeFiles/omp_gen.dir/depend
+	$(MAKE) -f CFL-LLVM/CMakeFiles/omp_gen.dir/build.make CFL-LLVM/CMakeFiles/omp_gen.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zzzccc/zcFuzzing/build/CMakeFiles --progress-num= "Built target omp_gen"
-.PHONY : CMakeFiles/omp_gen.dir/all
+.PHONY : CFL-LLVM/CMakeFiles/omp_gen.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/omp_gen.dir/rule: cmake_check_build_system
+CFL-LLVM/CMakeFiles/omp_gen.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zzzccc/zcFuzzing/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/omp_gen.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CFL-LLVM/CMakeFiles/omp_gen.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zzzccc/zcFuzzing/build/CMakeFiles 0
-.PHONY : CMakeFiles/omp_gen.dir/rule
+.PHONY : CFL-LLVM/CMakeFiles/omp_gen.dir/rule
 
 # Convenience name for target.
-omp_gen: CMakeFiles/omp_gen.dir/rule
+omp_gen: CFL-LLVM/CMakeFiles/omp_gen.dir/rule
 
 .PHONY : omp_gen
 
 # clean rule for target.
-CMakeFiles/omp_gen.dir/clean:
-	$(MAKE) -f CMakeFiles/omp_gen.dir/build.make CMakeFiles/omp_gen.dir/clean
-.PHONY : CMakeFiles/omp_gen.dir/clean
+CFL-LLVM/CMakeFiles/omp_gen.dir/clean:
+	$(MAKE) -f CFL-LLVM/CMakeFiles/omp_gen.dir/build.make CFL-LLVM/CMakeFiles/omp_gen.dir/clean
+.PHONY : CFL-LLVM/CMakeFiles/omp_gen.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/intrinsics_gen.dir
+# Target rules for target CFL-LLVM/CMakeFiles/intrinsics_gen.dir
 
 # All Build rule for target.
-CMakeFiles/intrinsics_gen.dir/all:
-	$(MAKE) -f CMakeFiles/intrinsics_gen.dir/build.make CMakeFiles/intrinsics_gen.dir/depend
-	$(MAKE) -f CMakeFiles/intrinsics_gen.dir/build.make CMakeFiles/intrinsics_gen.dir/build
+CFL-LLVM/CMakeFiles/intrinsics_gen.dir/all:
+	$(MAKE) -f CFL-LLVM/CMakeFiles/intrinsics_gen.dir/build.make CFL-LLVM/CMakeFiles/intrinsics_gen.dir/depend
+	$(MAKE) -f CFL-LLVM/CMakeFiles/intrinsics_gen.dir/build.make CFL-LLVM/CMakeFiles/intrinsics_gen.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zzzccc/zcFuzzing/build/CMakeFiles --progress-num= "Built target intrinsics_gen"
-.PHONY : CMakeFiles/intrinsics_gen.dir/all
+.PHONY : CFL-LLVM/CMakeFiles/intrinsics_gen.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/intrinsics_gen.dir/rule: cmake_check_build_system
+CFL-LLVM/CMakeFiles/intrinsics_gen.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zzzccc/zcFuzzing/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/intrinsics_gen.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CFL-LLVM/CMakeFiles/intrinsics_gen.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zzzccc/zcFuzzing/build/CMakeFiles 0
-.PHONY : CMakeFiles/intrinsics_gen.dir/rule
+.PHONY : CFL-LLVM/CMakeFiles/intrinsics_gen.dir/rule
 
 # Convenience name for target.
-intrinsics_gen: CMakeFiles/intrinsics_gen.dir/rule
+intrinsics_gen: CFL-LLVM/CMakeFiles/intrinsics_gen.dir/rule
 
 .PHONY : intrinsics_gen
 
 # clean rule for target.
-CMakeFiles/intrinsics_gen.dir/clean:
-	$(MAKE) -f CMakeFiles/intrinsics_gen.dir/build.make CMakeFiles/intrinsics_gen.dir/clean
-.PHONY : CMakeFiles/intrinsics_gen.dir/clean
+CFL-LLVM/CMakeFiles/intrinsics_gen.dir/clean:
+	$(MAKE) -f CFL-LLVM/CMakeFiles/intrinsics_gen.dir/build.make CFL-LLVM/CMakeFiles/intrinsics_gen.dir/clean
+.PHONY : CFL-LLVM/CMakeFiles/intrinsics_gen.dir/clean
 
 #=============================================================================
-# Target rules for target Pass/CMakeFiles/install-CflLLVMPass-stripped.dir
+# Target rules for target CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass-stripped.dir
 
 # All Build rule for target.
-Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/all: Pass/CMakeFiles/CflLLVMPass.dir/all
-	$(MAKE) -f Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/build.make Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/depend
-	$(MAKE) -f Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/build.make Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/build
+CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/all: CFL-LLVM/Pass/CMakeFiles/CflLLVMPass.dir/all
+	$(MAKE) -f CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/build.make CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/depend
+	$(MAKE) -f CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/build.make CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zzzccc/zcFuzzing/build/CMakeFiles --progress-num= "Built target install-CflLLVMPass-stripped"
-.PHONY : Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/all
+.PHONY : CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/all
 
 # Build rule for subdir invocation for target.
-Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/rule: cmake_check_build_system
+CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zzzccc/zcFuzzing/build/CMakeFiles 3
-	$(MAKE) -f CMakeFiles/Makefile2 Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zzzccc/zcFuzzing/build/CMakeFiles 0
-.PHONY : Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/rule
+.PHONY : CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/rule
 
 # Convenience name for target.
-install-CflLLVMPass-stripped: Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/rule
+install-CflLLVMPass-stripped: CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/rule
 
 .PHONY : install-CflLLVMPass-stripped
 
 # clean rule for target.
-Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/clean:
-	$(MAKE) -f Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/build.make Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/clean
-.PHONY : Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/clean
+CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/clean:
+	$(MAKE) -f CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/build.make CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/clean
+.PHONY : CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass-stripped.dir/clean
 
 #=============================================================================
-# Target rules for target Pass/CMakeFiles/install-CflLLVMPass.dir
+# Target rules for target CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass.dir
 
 # All Build rule for target.
-Pass/CMakeFiles/install-CflLLVMPass.dir/all: Pass/CMakeFiles/CflLLVMPass.dir/all
-	$(MAKE) -f Pass/CMakeFiles/install-CflLLVMPass.dir/build.make Pass/CMakeFiles/install-CflLLVMPass.dir/depend
-	$(MAKE) -f Pass/CMakeFiles/install-CflLLVMPass.dir/build.make Pass/CMakeFiles/install-CflLLVMPass.dir/build
+CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass.dir/all: CFL-LLVM/Pass/CMakeFiles/CflLLVMPass.dir/all
+	$(MAKE) -f CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass.dir/build.make CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass.dir/depend
+	$(MAKE) -f CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass.dir/build.make CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zzzccc/zcFuzzing/build/CMakeFiles --progress-num= "Built target install-CflLLVMPass"
-.PHONY : Pass/CMakeFiles/install-CflLLVMPass.dir/all
+.PHONY : CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass.dir/all
 
 # Build rule for subdir invocation for target.
-Pass/CMakeFiles/install-CflLLVMPass.dir/rule: cmake_check_build_system
+CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zzzccc/zcFuzzing/build/CMakeFiles 3
-	$(MAKE) -f CMakeFiles/Makefile2 Pass/CMakeFiles/install-CflLLVMPass.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zzzccc/zcFuzzing/build/CMakeFiles 0
-.PHONY : Pass/CMakeFiles/install-CflLLVMPass.dir/rule
+.PHONY : CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass.dir/rule
 
 # Convenience name for target.
-install-CflLLVMPass: Pass/CMakeFiles/install-CflLLVMPass.dir/rule
+install-CflLLVMPass: CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass.dir/rule
 
 .PHONY : install-CflLLVMPass
 
 # clean rule for target.
-Pass/CMakeFiles/install-CflLLVMPass.dir/clean:
-	$(MAKE) -f Pass/CMakeFiles/install-CflLLVMPass.dir/build.make Pass/CMakeFiles/install-CflLLVMPass.dir/clean
-.PHONY : Pass/CMakeFiles/install-CflLLVMPass.dir/clean
+CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass.dir/clean:
+	$(MAKE) -f CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass.dir/build.make CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass.dir/clean
+.PHONY : CFL-LLVM/Pass/CMakeFiles/install-CflLLVMPass.dir/clean
 
 #=============================================================================
-# Target rules for target Pass/CMakeFiles/CflLLVMPass.dir
+# Target rules for target CFL-LLVM/Pass/CMakeFiles/CflLLVMPass.dir
 
 # All Build rule for target.
-Pass/CMakeFiles/CflLLVMPass.dir/all:
-	$(MAKE) -f Pass/CMakeFiles/CflLLVMPass.dir/build.make Pass/CMakeFiles/CflLLVMPass.dir/depend
-	$(MAKE) -f Pass/CMakeFiles/CflLLVMPass.dir/build.make Pass/CMakeFiles/CflLLVMPass.dir/build
+CFL-LLVM/Pass/CMakeFiles/CflLLVMPass.dir/all:
+	$(MAKE) -f CFL-LLVM/Pass/CMakeFiles/CflLLVMPass.dir/build.make CFL-LLVM/Pass/CMakeFiles/CflLLVMPass.dir/depend
+	$(MAKE) -f CFL-LLVM/Pass/CMakeFiles/CflLLVMPass.dir/build.make CFL-LLVM/Pass/CMakeFiles/CflLLVMPass.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zzzccc/zcFuzzing/build/CMakeFiles --progress-num=1,2,3 "Built target CflLLVMPass"
-.PHONY : Pass/CMakeFiles/CflLLVMPass.dir/all
+.PHONY : CFL-LLVM/Pass/CMakeFiles/CflLLVMPass.dir/all
 
 # Build rule for subdir invocation for target.
-Pass/CMakeFiles/CflLLVMPass.dir/rule: cmake_check_build_system
+CFL-LLVM/Pass/CMakeFiles/CflLLVMPass.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zzzccc/zcFuzzing/build/CMakeFiles 3
-	$(MAKE) -f CMakeFiles/Makefile2 Pass/CMakeFiles/CflLLVMPass.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CFL-LLVM/Pass/CMakeFiles/CflLLVMPass.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zzzccc/zcFuzzing/build/CMakeFiles 0
-.PHONY : Pass/CMakeFiles/CflLLVMPass.dir/rule
+.PHONY : CFL-LLVM/Pass/CMakeFiles/CflLLVMPass.dir/rule
 
 # Convenience name for target.
-CflLLVMPass: Pass/CMakeFiles/CflLLVMPass.dir/rule
+CflLLVMPass: CFL-LLVM/Pass/CMakeFiles/CflLLVMPass.dir/rule
 
 .PHONY : CflLLVMPass
 
 # clean rule for target.
-Pass/CMakeFiles/CflLLVMPass.dir/clean:
-	$(MAKE) -f Pass/CMakeFiles/CflLLVMPass.dir/build.make Pass/CMakeFiles/CflLLVMPass.dir/clean
-.PHONY : Pass/CMakeFiles/CflLLVMPass.dir/clean
+CFL-LLVM/Pass/CMakeFiles/CflLLVMPass.dir/clean:
+	$(MAKE) -f CFL-LLVM/Pass/CMakeFiles/CflLLVMPass.dir/build.make CFL-LLVM/Pass/CMakeFiles/CflLLVMPass.dir/clean
+.PHONY : CFL-LLVM/Pass/CMakeFiles/CflLLVMPass.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
