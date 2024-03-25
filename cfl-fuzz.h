@@ -24,7 +24,6 @@ struct queue_entry
         depth;   /* 通过多少次变异得到的 */
 
     u8 *trace_mini; /* 放弃覆盖位图每个位置被涉及了几次的信息 仅仅保留是否被涉及 */
-    u32 tc_ref;     /*  在top_rated中被涉及了几次   */
 
     struct queue_entry *next; /*  队列的下一项    */
     int is_crash;
@@ -45,9 +44,7 @@ struct Fuzzer_resource
     struct queue_entry *top_rated[MAP_SIZE]; /* 记录每个 bit 得分最高的 q */
 
     struct queue_entry *queue, /* Fuzzing queue (linked list)      */
-        *queue_cur,                   /* Current offset within the queue  */
-        *queue_top,                   /* Top of the list                  */
-        *q_prev100;                   /* Previous 100 marker              */
+        *queue_top;          /* Top of the list                  */
 };
 
 struct Fuzzer_fd
@@ -57,12 +54,9 @@ struct Fuzzer_fd
     s32 dev_null_fd;             /* /dev/null */
     s32 forkserv_control_fd;     /* 存储 fork server 控制管道的写入端 */
     s32 forkserv_state_fd;       /* 用于存储 fork server 状态管道的读取端的文件描述符 */
-    s32 out_dir_fd;              /* FD of the lock file */
-
+    s32 out_dir_fd;
     u8 *in_dir;                  /* testcases 输入目录 */
-    u8 *cur_inputfile;           /* 用于输入到 */
     u8 *out_dir;                 /* 输出目录 */
-    u8 *loaded_bitmap;           /* 输入的bitmap */
     u8 *target_path;             /* 目标二进制程序路径 */
 };
 
@@ -71,45 +65,22 @@ struct Fuzzer_flag
     u8 stop_soon, /* 是否识别到ctrl_c等信号 */
         child_timed_out,          /* 子进程是否超时         */
         bitmap_changed,       /* bitmap 是否改变了        */
-        score_changed, /* top_rated[] 是否发生了改变 是否需要进行cull_queue */
-        kill_signal,
-        shuffle_queue;
-    u32 time_limit, /* 设置子程序运行的时间限制 超过此限制则自动退出 */
-        exec_tmout;
+        kill_signal;
 };
 
 struct Fuzzer_count
 {
-    u64 total_crashes, /* Total number of crashes          */
-        unique_crashes,       /* Crashes with unique signatures   */
-        total_tmouts,         /* Total number of timeouts         */
-        unique_tmouts,        /* Timeouts with unique signatures  */
-        total_execs,          /* 程序执行的总次数                  */
+    u64 total_execs,          /* 程序执行的总次数                  */
         start_time,           /* 主循环开始运行的时刻              */
-        queue_cycle,          /* Queue round counter              */
-        cycles_wo_finds,      /* Cycles without any new paths     */
-        trim_execs,           /* Execs done to trim input files   */
-        bytes_trim_in,        /* Bytes coming into the trimmer    */
-        bytes_trim_out,       /* Bytes coming outa the trimmer    */
-        blocks_eff_total,     /* Blocks subject to effector maps  */
-        blocks_eff_select;    /* Blocks selected as fuzzable      */
-
-    u64 total_cal_us, /* Total calibration time (us)      */
-        total_cal_cycles;    /* Total calibration cycles         */
-
-    u64 total_bitmap_size, /* Total bit count for all bitmaps  */
-        total_bitmap_entries;     /* Number of bitmaps counted        */
+        queue_cycle;          /* Queue round counter              */
 };
 
 struct Fuzzer_current_message
 {
     u32 queue_length, /* Total number of queued testcases */
         write_timeout, /* 已经有多少个超时的案例被写入了 */
-        queued_favored,      /* Paths deemed favorable           */
         total_crashes,
-        queued_with_cov,     /* Paths with new coverage bytes    */
         pending_not_fuzzed,  /* Queued but not done yet          */
-        pending_favored,     /* Pending favored paths            */
         cur_depth,           /* Current path depth               */
         max_depth;          /* Max path depth                   */
 

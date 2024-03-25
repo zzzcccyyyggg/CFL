@@ -14,21 +14,6 @@
 #include <unistd.h>
 #include <sys/stat.h>
 #include "./Mutations.h"
-/* shm 移除时自动调用 清除痕迹 */
-
-static void minimize_bits(u8 *dst, u8 *src)
-{
-
-  u32 i = 0;
-
-  while (i < MAP_SIZE)
-  {
-
-    if (*(src++))
-      dst[i >> 3] |= 1 << (i & 7);
-    i++;
-  }
-}
 
 /* 设置各个文件标识符 主要是创建输出目录 并设置常用的如/dev/null等目录 */
 static void setup_dirs_fds(struct Fuzzer_fd *fuzzer_fd)
@@ -192,51 +177,6 @@ static u64 get_cur_time(void) {
 
 }
 
-//参考 AFL 对种子的筛选制度
-static void update_bitmap_score(struct queue_entry* q,struct Fuzzer_resource *fuzzer_res,struct Fuzzer_flag *fuzzer_flag) {
-
-  u32 i;
-  u64 fav_factor = q->exec_us * q->len;
-
-  /* For every byte set in trace_bits[], see if there is a previous winner,
-     and how it compares to us. */
-
-  for (i = 0; i < MAP_SIZE; i++)
-
-    if (fuzzer_res->trace_bits[i]) {
-
-       if (fuzzer_res->top_rated[i]) {
-
-         /* Faster-executing or smaller test cases are favored. */
-
-         if (fav_factor > fuzzer_res->top_rated[i]->exec_us * fuzzer_res->top_rated[i]->len) continue;
-
-         /* Looks like we're going to win. Decrease ref count for the
-            previous winner, discard its trace_bits[] if necessary. */
-
-         if (!--fuzzer_res->top_rated[i]->tc_ref) {
-           check_free(fuzzer_res->top_rated[i]->trace_mini);
-           fuzzer_res->top_rated[i]->trace_mini = 0;
-         }
-
-       }
-
-       /* Insert ourselves as the new winner. */
-
-       fuzzer_res->top_rated[i] = q;
-       q->tc_ref++;
-
-       if (!q->trace_mini) {
-         q->trace_mini = check_alloc(MAP_SIZE >> 3);
-         minimize_bits(q->trace_mini, fuzzer_res->trace_bits);
-       }
-
-       fuzzer_flag->score_changed = 1;
-
-     }
-
-}
-
 #define FF(_b)  (0xff << ((_b) << 3))
 
 static u32 count_bytes(u8* mem) {
@@ -261,15 +201,7 @@ static u32 count_bytes(u8* mem) {
 
 }
 
-static u64 get_cur_time_us(void) {
 
-  struct timeval tv;
-
-  gettimeofday(&tv, NULL);
-
-  return (tv.tv_sec * 1000000ULL) + tv.tv_usec;
-
-}
 
 static void write_to_timeout(void* mem, u32 len,struct Fuzzer_fd *fuzzer_fd,struct Fuzzer_current_message *fuzzer_cur_msg) {
     u8 *tmp;
