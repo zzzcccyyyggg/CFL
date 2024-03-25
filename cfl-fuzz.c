@@ -422,7 +422,7 @@ static u8 run_target(u32 timeout)
             return FAULT_TMOUT;
         }
         // 其他原因退出，说明 crash
-
+        printf("crashes happened, signal %d\n", WTERMSIG(status));
         return FAULT_CRASH;
     }
     //否则返回 NONE 状态 即正常运行 并未发生啥
@@ -742,8 +742,8 @@ int main(int argc, char** argv) {
         if(fuzzer_cur_msg.queue_cur->next){
             fuzzer_cur_msg.queue_cur = fuzzer_cur_msg.queue_cur->next;
         }else{
-            printf("all is tested done");
-            exit(0);
+            fuzzer_cur_msg.queue_cur = fuzzer_res.queue;
+            printf("all is tested done once");
         }
 
     }
