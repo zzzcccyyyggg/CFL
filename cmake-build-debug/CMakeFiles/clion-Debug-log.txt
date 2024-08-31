@@ -1,4 +1,0 @@
-/home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/zzzccc/.cache/JetBrains/RemoteDev/dist/b1b1b7f34774a_CLion-241.14494.154/bin/ninja/linux/x64/ninja -DCMAKE_C_COMPILER=/home/zzzccc/test1/cfl-clang -DCMAKE_CXX_COMPILER=/home/zzzccc/test1/cfl-clang -G Ninja -S /home/zzzccc/zcFuzzing -B /home/zzzccc/zcFuzzing/cmake-build-debug
--- Configuring done (0.2s)
--- Generating done (0.0s)
--- Build files have been written to: /home/zzzccc/zcFuzzing/cmake-build-debug

@@ -1,0 +1,36 @@
+name: macOS Build
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  install_dependencies_and_build:
+    name: Install Dependencies and Build
+    runs-on: macos-latest
+    steps:
+      - name: Prepare environment and install dependencies
+        run: |
+          brew update
+          brew install GraphicsMagick webp cmake
+          brew install libdeflate libsixel
+          brew install ffmpeg jpeg-turbo libexif libpng
+          brew install openslide
+          brew install librsvg cairo
+          brew install poppler
+          brew install pandoc
+
+      - name: Get the Source
+        uses: actions/checkout@v3
+
+      - name: Build timg
+        run: |
+          mkdir build
+          cd build
+          cmake .. -DWITH_VIDEO_DECODING=On -DWITH_VIDEO_DEVICE=On -DWITH_OPENSLIDE_SUPPORT=On
+          make -k
+
+      - name: Print timg Version string
+        run: |
+          build/src/timg --version

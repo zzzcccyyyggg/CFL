@@ -1,0 +1,1 @@
+/usr/bin/cc  -O3 -funroll-loops -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"\" -DBIN_PATH=\"\" -DVERSION=\"\"   CMakeFiles/cfl-clang.dir/cfl-clang.c.o  -o cfl-clang   -L/usr/lib/llvm-12/lib 

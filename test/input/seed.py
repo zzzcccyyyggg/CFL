@@ -22,5 +22,10 @@ for power in range(7, 13):  # 从 2^7 到 2^12
     for i in range(num_files):
         file_size = random.randint(2**power, 2**(power+1))
         generate_random_file(f'random_file_{2**power}_{2**(power+1)}_{i}.bin', file_size)
-
+        
+for power in range(13, 18):  # 从 2^7 到 2^12
+    num_files = 2**(power-10)  # 文件数量为 2^(power-5)
+    for i in range(num_files):
+        file_size = random.randint(2**power, 2**(power+1))
+        generate_random_file(f'random_file_{2**power}_{2**(power+1)}_{i}.bin', file_size)
 print("Random files have been generated.")

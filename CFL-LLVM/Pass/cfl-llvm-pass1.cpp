@@ -74,12 +74,11 @@ PreservedAnalyses CflLLVMPass::run(Module &M, ModuleAnalysisManager &AM){
 
     int inst_blocks = 0;
 
-    for (auto &F : M)
+    for (auto &F : M){
         for (auto &BB : F) {
             //找到基本块（BasicBlock）中的首个安全插入点，即第一个非 PHI（φ）节点的指令
             BasicBlock::iterator IP = BB.getFirstInsertionPt();
             IRBuilder<> IRB(&(*IP));
-            //IRB.SetInsertPoint(BB);
 
             if (CFL_R(100) >= inst_ratio) continue;
 
@@ -122,7 +121,7 @@ PreservedAnalyses CflLLVMPass::run(Module &M, ModuleAnalysisManager &AM){
             inst_blocks++;
 
         }
-
+    }
     /* Say something nice. */
     //输出些插桩的样例
     if (!be_quiet) {

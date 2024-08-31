@@ -1,0 +1,201 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-20.04  # test slightly older ubuntu.
+    strategy:
+      fail-fast: false
+      matrix:
+        compiler:
+          - g++
+          - clang++
+
+    name: Build ${{matrix.compiler}}
+    steps:
+      - name: Install minimal dependencies
+        run: |
+          sudo apt update
+          sudo apt install cmake git g++ clang pkg-config libswscale-dev libavutil-dev libdeflate-dev
+
+      - name: Get the Source
+        uses: actions/checkout@v3
+
+      - name: Configure shell
+        run: |
+          echo "CXX=${{ matrix.compiler }}" >> $GITHUB_ENV
+          echo "CXXFLAGS=-Werror" >> $GITHUB_ENV
+
+      - name: Build minimal dependency timg
+        # Building a timg with all dependencies removed to the point that it
+        # can't display anything. Makes sure all the #ifdefs are there.
+        run: |
+          mkdir build-limitdep
+          cd build-limitdep
+          cmake .. -DWITH_VIDEO_DECODING=Off -DWITH_VIDEO_DEVICE=Off -DWITH_OPENSLIDE_SUPPORT=Off -DWITH_GRAPHICSMAGICK=Off -DWITH_TURBOJPEG=Off -DWITH_RSVG=Off -DWITH_POPPLER=Off -DWITH_LIBSIXEL=Off
+          make -k
+
+      - name: Install Full Dependencies
+        run: |
+          sudo apt update
+          sudo apt install libgraphicsmagick++-dev
+          sudo apt install libturbojpeg-dev libexif-dev
+          sudo apt install libsixel-dev
+          sudo apt install librsvg2-dev libcairo-dev
+          sudo apt install libavcodec-dev libavformat-dev libavdevice-dev
+          sudo apt install libopenslide-dev
+          sudo apt install libpoppler-glib-dev
+          sudo apt install pandoc
+
+      - name: Build timg with all options enabled
+        run: |
+          mkdir build
+          cd build
+          cmake .. -DWITH_VIDEO_DECODING=On -DWITH_VIDEO_DEVICE=On -DWITH_OPENSLIDE_SUPPORT=On -DWITH_STB_IMAGE=On -DWITH_RSVG=On -DWITH_POPPLER=On -DWITH_LIBSIXEL=On
+          make -k
+
+      - name: Print timg Version string
+        run: |
+          echo "------------------- Limited dependency version string --------"
+          build-limitdep/src/timg --version
+          echo
+
+          echo "------------------- All dependencies version string ----------"
+          build/src/timg --version
+
+  CodeFormatting:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout code
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Install Dependencies
+      run: |
+        sudo apt-get install clang-format-13
+
+    - name: Run formatting style check
+      run: ./.github/bin/run-clang-format.sh
+
+  TagIfNeeded:
+    name: Version Tagging
+    runs-on: ubuntu-latest
+    #if: ${{github.event_name == 'push' && github.ref == 'refs/heads/main'}}
+    permissions:
+      contents: write
+
+    outputs:
+      release_tag: ${{ steps.do_tag.outputs.RELEASE_TAG }}
+
+    steps:
+    - name: 📥 Download artifacts
+      uses: actions/download-artifact@v3
+
+    - uses: actions/checkout@v3
+      with:
+       fetch-depth: 0
+       token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Tag with CMake version if not already.
+      id: do_tag
+      run: |
+        git config --local user.name "Development Bot"
+        git config --local user.email "h.zeller@timg.sh"
+
+        # We want to tag whenever the cmake version changes. So extract the
+        # hash of when the current version was entered.
+        read TAG_HASH TAG_VERSION <<<$(git annotate -l CMakeLists.txt | sed 's/\(^[0-9A-Fa-f]\+\).*project(timg VERSION \([0-9]\+\.[0-9]\+\.[0-9]\+\).*/\1 \2/p;d')
+
+        echo "timg Version v${TAG_VERSION} at hash ${TAG_HASH}"
+
+        # If this is the first time we see this tag: apply.
+        if [ -z "$(git tag -l "v${TAG_VERSION}")" ]; then
+          git tag -a "v${TAG_VERSION}" ${TAG_HASH} -m "Update to v${TAG_VERSION}"
+          git push origin "v${TAG_VERSION}"
+          echo "RELEASE_TAG=v${TAG_VERSION}" >> $GITHUB_OUTPUT
+        else
+          echo "Tag does exist already"
+        fi
+
+  AppImageBuild:
+    needs: [ TagIfNeeded ]
+    runs-on: ubuntu-latest
+    name: Build AppImage
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+     # TODO: extract version from tag, fix-up yml file.
+      - name: Install Dependencies
+        run: |
+          sudo apt update
+          sudo apt install cmake git g++ clang pkg-config
+          sudo apt install libswscale-dev libavutil-dev libdeflate-dev
+          sudo apt install libturbojpeg-dev libexif-dev
+          sudo apt install librsvg2-dev libcairo-dev
+          sudo apt install libsixel-dev
+          sudo apt install libpoppler-glib-dev
+          sudo apt install pandoc
+
+      - name: Set Version
+        run: |
+          echo "PACKAGE_VERSION=$(git describe | sed 's/\(v.*-.*\)-.*/\1/')" >> $GITHUB_ENV
+
+      - name: Build AppDir
+        run: |
+          # Switch off some or the more expensive dependencies.
+          # also check apt to include in .github/conf/AppImageBuilder.yml
+          ./.github/bin/prepare-app-image.sh \
+             -DWITH_GRAPHICSMAGICK=Off \
+             -DWITH_RSVG=Off \
+             -DWITH_POPPLER=Off \
+             -DWITH_VIDEO_DECODING=Off \
+             -DWITH_VIDEO_DEVICE=Off \
+             -DWITH_OPENSLIDE_SUPPORT=Off \
+             -DWITH_TURBOJPEG=On \
+             -DWITH_STB_IMAGE=On \
+             -DWITH_QOI_IMAGE=On \
+             -DWITH_LIBSIXEL=On
+          strip AppDir/usr/bin/timg
+          ldd AppDir/usr/bin/timg
+          sed "s/@VERSION@/$PACKAGE_VERSION/" \
+              < .github/conf/AppImageBuilder.yml.in \
+              > AppImageBuilder.yml
+
+      - name: Package
+        uses: AppImageCrafters/build-appimage@master
+        env:
+          UPDATE_INFO: gh-releases-zsync|hzeller|timg|latest|*.AppImage.zsync
+        with:
+          recipe: "AppImageBuilder.yml"
+
+      - name: 📤 Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: timg-${{ env.PACKAGE_VERSION }}-x86_64.AppImage
+          path: timg-${{ env.PACKAGE_VERSION }}-x86_64.AppImage
+
+
+  Release:
+    needs: [ AppImageBuild ]
+    if: needs.TagIfNeeded.RELEASE_TAG != ''
+    runs-on: ubuntu-latest
+    name: Create Release
+    steps:
+      - name: 🎉 Release If Tagged
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: artifact/timg-*.AppImage
+          tag: ${{ needs.TagIfNeeded.RELEASE_TAG }}
+          overwrite: true
+          file_glob: true

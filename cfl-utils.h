@@ -23,43 +23,34 @@ static void setup_dirs_fds(struct Fuzzer_fd *fuzzer_fd)
   s32 fd;
 
   ACTF("Setting up output directories...");
-
   if (mkdir(fuzzer_fd->out_dir, 0700))
   {
-
     if (errno != EEXIST)
       PFATAL("Unable to create '%s'", fuzzer_fd->out_dir);
   }
   else
   {
-
     fuzzer_fd->out_dir_fd = open(fuzzer_fd->out_dir, O_RDONLY);
   }
-
   /* 用于存储初始和发现的测试用例的队列目录。*/
-
   tmp = alloc_printf("%s/queue", fuzzer_fd->out_dir);
   if (mkdir(tmp, 0700))
       if (errno != EEXIST)
         PT("Unable to create '%s'\n", tmp);
   check_free(tmp);
-
-
   /* 所有记录的崩溃。*/
-
   tmp = alloc_printf("%s/crashes", fuzzer_fd->out_dir);
   if (mkdir(tmp, 0700))
       if (errno != EEXIST)
         PT("Unable to create '%s'\n", tmp);
   check_free(tmp);
-
+ /* 记录所有的超时*/
  tmp = alloc_printf("%s/timed_outs", fuzzer_fd->out_dir);
  if (mkdir(tmp, 0700))
     PT("Already exist . Unable to create '%s'\n", tmp);
  check_free(tmp);
 
   /* 一些有用的文件描述符。*/
-
   fuzzer_fd->dev_null_fd = open("/dev/null", O_RDWR);
   if (fuzzer_fd->dev_null_fd < 0)
     PFATAL("Unable to open /dev/null");
@@ -233,6 +224,41 @@ static void write_to_crash(void* mem, u32 len,struct Fuzzer_fd *fuzzer_fd,struct
     check_free(tmp);
     check_free(fn);
     close(fd);
+}
+
+typedef struct {
+    char *str;
+    size_t length;
+} RandomData;
+
+// 生成随机字符串的函数
+RandomData generate_random_data(size_t max_length) {
+    // 初始化随机数种子
+    srand(time(NULL));
+
+    // 随机确定字符串长度，范围在 1 到 max_length 之间
+    size_t length = rand() % max_length + 1;
+
+    // 分配内存用于存储随机字符串
+    char *str = (char *)malloc((length + 1) * sizeof(char));
+    if (str == NULL) {
+        fprintf(stderr, "Memory allocation failed\n");
+        exit(EXIT_FAILURE);
+    }
+
+    // 生成随机字符串
+    const char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    for (size_t i = 0; i < length; i++) {
+        int key = rand() % (sizeof(charset) - 1);
+        str[i] = charset[key];
+    }
+    str[length] = '\0'; // 确保字符串以 null 结尾
+
+    // 创建 RandomString 结构体并返回
+    RandomData result;
+    result.str = str;
+    result.length = length;
+    return result;
 }
 
 

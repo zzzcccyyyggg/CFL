@@ -27,43 +27,7 @@ static u8 count_class_lookup8[256] = {
     [128 ... 255] = 128
 
 };
-
-enum
-{
-    /* 00 */ FAULT_NONE,
-    /* 01 */ FAULT_TMOUT,
-    /* 02 */ FAULT_CRASH,
-    /* 03 */ FAULT_NOBITS
-};
-
-/* 全局变量申请 */
-static struct Fuzzer_resource fuzzer_res;
-static struct Fuzzer_fd fuzzer_fd;
-static struct Fuzzer_count fuzzer_count;
-static struct Fuzzer_flag fuzzer_flag;
-static struct Fuzzer_current_message fuzzer_cur_msg;
-
-/* 非结构体 */
-static u32 exec_tmout = EXEC_TIMEOUT; /* Configurable exec timeout (ms)   */
-static u32 max_cycle  = 8;
-
-static u8 *cmd_options[MAX_ARGS];
-static u8 *cmd_values[MAX_ARGS];
-static s32 num_options = 0;
-
-static u8 *program_argv[MAX_ARGS];
-static u8 target_program_path[MAX_PATH_LENGTH];
-static u8 num_program_argv = 0;
-
-// 用于Magic Numbers变异的一组常见边界值
-const int MAGIC_NUMBERS[] = {0, 0xFF, 0x7F, 0x80, -1, INT_MAX};
-const size_t MAGIC_NUMBERS_COUNT = sizeof(MAGIC_NUMBERS) / sizeof(MAGIC_NUMBERS[0]);
-/* 全局变量申请 */
-
-/* 处理 ctrl_c 等停止信号 这里为了简单起见 杀死子进程后便退出 放弃程序中可能存在的有用资源 */
 static u16 count_class_lookup16[65536];
-
-
 static void init_count_class16(void) {
 
   u32 b1, b2;
@@ -99,6 +63,38 @@ static inline void classify_counts(u64* mem) {
   }
 
 }
+enum
+{
+    /* 00 */ FAULT_NONE,
+    /* 01 */ FAULT_TMOUT,
+    /* 02 */ FAULT_CRASH,
+    /* 03 */ FAULT_NOBITS
+};
+
+/* 全局变量申请 */
+static struct Fuzzer_resource fuzzer_res;
+static struct Fuzzer_fd fuzzer_fd;
+static struct Fuzzer_count fuzzer_count;
+static struct Fuzzer_flag fuzzer_flag;
+static struct Fuzzer_current_message fuzzer_cur_msg;
+
+/* 非结构体 */
+static u32 exec_tmout = EXEC_TIMEOUT; /* Configurable exec timeout (ms)   */
+static u32 max_cycle  = 8;
+
+static u8 *cmd_options[MAX_ARGS];
+static u8 *cmd_values[MAX_ARGS];
+static s32 num_options = 0;
+
+static u8 *program_argv[MAX_ARGS];
+static u8 target_program_path[MAX_PATH_LENGTH];
+static u8 num_program_argv = 0;
+
+// 用于 Magic Numbers 变异的一组常见边界值
+const int MAGIC_NUMBERS[] = {0, 0xFF, 0x7F, 0x80, -1, INT_MAX};
+const size_t MAGIC_NUMBERS_COUNT = sizeof(MAGIC_NUMBERS) / sizeof(MAGIC_NUMBERS[0]);
+/* 全局变量申请 */
+
 
 void * remove_shm()
 {
@@ -109,7 +105,6 @@ void * remove_shm()
 /* 初始化共享内存 */
 static void setup_shm(struct Fuzzer_resource *fuzzer_res)
 {
-
     u8 *shm_str;
     // 是否加载了已存在的 bitmap 若没加载 则初始化 若已加载 则不初始化
     memset(fuzzer_res->virgin_bits, 0, MAP_SIZE);
@@ -117,22 +112,13 @@ static void setup_shm(struct Fuzzer_resource *fuzzer_res)
     memset(fuzzer_res->virgin_tmout, 0, MAP_SIZE);
     // 记录了错误未访问的
     memset(fuzzer_res->virgin_crash, 0, MAP_SIZE);
-
     fuzzer_res->shm_id = shmget(IPC_PRIVATE, MAP_SIZE, IPC_CREAT | IPC_EXCL | 0600);
-
     if (fuzzer_res->shm_id < 0)
         PFATAL("shmget() failed");
-// 没有进行自动关闭shm 后面要手动关闭下
-//    atexit(remove_shm());
-
     shm_str = alloc_printf("%d", fuzzer_res->shm_id);
-
     setenv(SHM_ENV_VAR, shm_str, 1);
-
     check_free(shm_str);
-
     fuzzer_res->trace_bits = shmat(fuzzer_res->shm_id, NULL, 0);
-
     if (fuzzer_res->trace_bits == (void *)-1)
         PFATAL("shmat() failed");
 }
@@ -145,7 +131,6 @@ static void destroy_queue(struct Fuzzer_resource* fuzzer_res) {
     while (q) {
         n = q->next;
         check_free(q->fname);
-        check_free(q->trace_mini);
         check_free(q);
         q = n;
     }
@@ -304,7 +289,7 @@ static void init_forkserver()
     {
         FATAL("Fork server crashed with signal %d", WTERMSIG(status));
     }
-    //标志着forkserver的结束
+    //标志着 forkserver 的结束
     if (*(u32 *)fuzzer_res.trace_bits == EXEC_FAIL_SIG)
         FATAL("Unable to execute target application");
 
@@ -410,8 +395,6 @@ static u8 run_target(u32 timeout)
     classify_counts((u32 *)fuzzer_res.trace_bits);
 #endif /* ^WORD_SIZE_64 */
 
-    /* 向调用者报告结果。*/
-
     // 若 child 是非正常结束的
     if (WIFSIGNALED(status))
     {
@@ -460,49 +443,34 @@ static void read_testcases( void ) {
   s32 nl_cnt;
   u32 i;
   u8* fn;
-
   /* Auto-detect non-in-place resumption attempts. */
-
   fn = alloc_printf("%s/queue", fuzzer_fd.in_dir);
   if (!access(fn, F_OK)) fuzzer_fd.in_dir = fn; else check_free(fn);
-
   ACTF("Scanning '%s'...", fuzzer_fd.in_dir);
-
   /* 函数使用 scandir 函数扫描输入目录 in_dir 中的文件，并使用 alphasort 函数对文件名进行排序 */
-
   nl_cnt = scandir(fuzzer_fd.in_dir, &nl, filter, alphasort);
-
   if (nl_cnt < 0) {
     PFATAL("Unable to open '%s'", fuzzer_fd.in_dir);
   }
-
   for (i = 0; i < nl_cnt; i++) {
     //stat 用于存储文件信息
     struct stat st;
-
     u8* fn = alloc_printf("%s/%s", fuzzer_fd.in_dir, nl[i]->d_name);
-
     if (lstat(fn, &st) || access(fn, R_OK))
       PFATAL("Unable to access '%s'", fn);
-    
     //是否是常规文件 文件大小是否为 0
     if (!st.st_size) {
       check_free(fn);
       continue;
     }
-
     add_to_queue(fn, st.st_size);
-
   }
-
   free(nl); /* not tracked */
-
-  // add_too_queue 应该会将现有的队列的数目添加 若还是为 0 说明要么不存在符合条件的文件要么初始化失败
+  // add_to_queue 应该会将现有的队列的数目添加 若还是为 0 说明要么不存在符合条件的文件要么初始化失败
   if (!fuzzer_cur_msg.queue_length) {
     FATAL("Read_testcases Fail in '%s'", fuzzer_fd.in_dir);
   }
   fuzzer_cur_msg.queued_at_start = fuzzer_cur_msg.queue_length;
-
 }
 
 //这里对常规的 也就是尚未添加进入队列的数据进行的测试
@@ -526,8 +494,9 @@ static u8 calibrate(void* mem,u32 len){
         fuzzer_res.queue_top->len = len;
         write_to_crash(mem,len,&fuzzer_fd,&fuzzer_cur_msg);
     }else{
-        // 0是没有 1是已知路径数量增加 2是找到新的路径
+        // 0 是没有 1 是已知路径数量增加 2 是找到新的路径
         int new_bits_level = check_new_bits(fuzzer_res.virgin_bits);
+        //printf("%d\n",new_bits_level);
         if(new_bits_level){
             fn = alloc_printf("%s/queue/id_%06u", fuzzer_fd.out_dir, fuzzer_cur_msg.queue_length);
             fd = open(fn, O_RDWR | O_CREAT | O_EXCL, 0600);
@@ -581,8 +550,8 @@ static void apply_major_mutation(void *mem,u32 len){
     }
     check_free(tmp);
 }
-//思路就是参考AFL的选择思想 但是这里直接取队列中的favored进行测试并根据其成绩进行变异 较简单 后面可以再进行改进
-//这里时利用重定向输入参数 在forkserver时完成了子进程的重定向
+//思路就是参考 AFL 的选择思想 但是这里直接取队列中的 favored 进行测试并根据其成绩进行变异 较简单后面可以再进行改进
+//这里时利用重定向输入参数 在 forkserver 时完成了子进程的重定向
 void fuzz_test(){
     s32 len, fd;
     u8  *in_buf, *testcase_buf;
@@ -600,7 +569,7 @@ void fuzz_test(){
         //释放内存并跳过
         int result = munmap(in_buf, len);
         if (result != 0) {
-            // munmap函数调用失败，可以检查errno来获取错误信息
+            // munmap 函数调用失败，可以检查 errno 来获取错误信息
             perror("munmap failed");
         }
     }else if (fuzzer_cur_msg.queue_cur->is_crash) {
@@ -609,7 +578,7 @@ void fuzz_test(){
         //释放内存并跳过
         int result = munmap(in_buf, len);
         if (result != 0) {
-            // munmap函数调用失败，可以检查errno来获取错误信息
+            // munmap 函数调用失败，可以检查 errno 来获取错误信息
             perror("munmap failed");
         }
     }else if (fuzzer_cur_msg.queue_cur->has_new_coverage){
@@ -618,14 +587,14 @@ void fuzz_test(){
         //释放内存并跳过
         int result = munmap(in_buf, len);
         if (result != 0) {
-            // munmap函数调用失败，可以检查errno来获取错误信息
+            // munmap 函数调用失败，可以检查 errno 来获取错误信息
             perror("munmap failed");
         }
     }else{
         apply_major_mutation(in_buf,len);
         int result = munmap(in_buf, len);
         if (result != 0) {
-            // munmap函数调用失败，可以检查errno来获取错误信息
+            // munmap 函数调用失败，可以检查 errno 来获取错误信息
             perror("munmap failed");
         }
     }
@@ -651,7 +620,6 @@ static void prev_run(){
 
         write_to_testcase(in_buf, len, &fuzzer_fd);
         u8 fault = run_target(exec_tmout);
-
         // 根据运行的结果处理
         if (fault == FAULT_CRASH) {
             current_queue->is_crash = 1;
@@ -661,12 +629,13 @@ static void prev_run(){
         } else {
             // 检查是否有新的覆盖范围
             int new_bits_level = check_new_bits(fuzzer_res.virgin_bits);
+            //printf("%d\n",new_bits_level);
             if (new_bits_level) {
                 current_queue->has_new_coverage = 1;
             }
             int result = munmap(in_buf, len);
             if (result != 0) {
-                // munmap函数调用失败，可以检查errno来获取错误信息
+                // munmap 函数调用失败，可以检查 errno 来获取错误信息
                 perror("munmap failed");
             }
         }
@@ -743,11 +712,11 @@ int main(int argc, char** argv) {
             fuzzer_cur_msg.queue_cur = fuzzer_cur_msg.queue_cur->next;
         }else{
             fuzzer_cur_msg.queue_cur = fuzzer_res.queue;
-            printf("all is tested done once");
+            printf("all is tested done once\n");
         }
 
     }
-    printf("zzzccc has try %d times\n",count++);
+    printf("cfl has tried %d times\n",count++);
     fuzz_test();
   }
 

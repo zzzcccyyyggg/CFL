@@ -23,8 +23,6 @@ struct queue_entry
     u64 exec_us, /* 执行时间 (us)              */
         depth;   /* 通过多少次变异得到的 */
 
-    u8 *trace_mini; /* 放弃覆盖位图每个位置被涉及了几次的信息 仅仅保留是否被涉及 */
-
     struct queue_entry *next; /*  队列的下一项    */
     int is_crash;
 };
@@ -41,8 +39,6 @@ struct Fuzzer_resource
     u8 virgin_bits[MAP_SIZE],                /* 尚未被 fuzzing 触及的区域 */
         virgin_tmout[MAP_SIZE],                     /* 在超时情况下尚未被观察到的区域   */
         virgin_crash[MAP_SIZE];                     /* 在崩溃情况下尚未被观察到的区域  */
-    struct queue_entry *top_rated[MAP_SIZE]; /* 记录每个 bit 得分最高的 q */
-
     struct queue_entry *queue, /* Fuzzing queue (linked list)      */
         *queue_top;          /* Top of the list                  */
 };
